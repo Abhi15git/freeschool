@@ -21,7 +21,7 @@ export const HomeInfo = () => {
                     <img src="https://th.bing.com/th/id/R.ca0c6d1aad2919592b7aff0b7a6d82f7?rik=ZNKtQYXPctRKtA&riu=http%3a%2f%2fwww.cadcamperformance.com%2fwp-content%2fuploads%2f2021%2f02%2fTeaching-Strategies-and-Resources-for-Online-Teaching.jpg&ehk=LXEh59SGFaDPLcaeIgKxQC%2fmpdL4yztlpar8FC%2fjn%2bw%3d&risl=&pid=ImgRaw&r=0" alt="" />
                 </div>
                 <div>
-                    <h2>Why learn on Tute?</h2>
+                    <h2>Learn from anywhere in India.</h2>
                     <p>Tute is a BETT award-winning provider of live and interactive teaching online. We partner with schools and parents to improve pupil attainment by
                         providing flexible, affordable additional teaching and learning to fill gaps in capacity and curriculum.</p>
                     <p>Tute's qualified teachers deliver lessons live in our safeguarded online classroom - Tute’s Learning Cloud and improve student outcomes from Grade 3 to Grade 12 for IB, CBSE and ICSE and Grade 3 to A level for IGCSE in over 30 subjects (core subjects like English, Math and Science along with the supplementary subjects like Social Science, Business Studies,
@@ -30,7 +30,7 @@ export const HomeInfo = () => {
             </div>
             <div className={styles.aboutDiv1}>
                 <div>
-                    <h2>Why learn on Tute?</h2>
+                    <h2>Teachers with passion and knowledge.</h2>
                     <p>Tute is a BETT award-winning provider of live and interactive teaching online. We partner with schools and parents to improve pupil attainment by
                         providing flexible, affordable additional teaching and learning to fill gaps in capacity and curriculum.</p>
                     <p>Tute's qualified teachers deliver lessons live in our safeguarded online classroom - Tute’s Learning Cloud and improve student outcomes from Grade 3 to Grade 12 for IB, CBSE and ICSE and Grade 3 to A level for IGCSE in over 30 subjects (core subjects like English, Math and Science along with the supplementary subjects like Social Science, Business Studies,
