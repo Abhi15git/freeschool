@@ -14,7 +14,7 @@ const TutorNav = () => {
 
             <div className={styles.links}>
             <Link to="/">Live Sessions</Link>
-            <Link to="/">Create Session</Link>
+            <Link to="/createsession">Create Session</Link>
             <Link to="/">Contact Us</Link>
             <Link to="/">Profile</Link>
             <Link to="/signin"><Button variant="outlined" size="small" color="inherit">Log out</Button></Link>

@@ -1,11 +1,13 @@
 .navContainer {
     position: fixed;
+    top: 0%;
   text-align: center;
   width: 100%;
   padding: 15px 0px;
 }
 .tutorNavContainer{
     position: fixed;
+    top: 0%;
   text-align: center;
   width: 100%;
   padding: 15px 0px;
