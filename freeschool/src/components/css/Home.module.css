@@ -1,0 +1,7 @@
+.Nav{
+    text-align: center;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+}
