@@ -31,7 +31,7 @@ export const HomeInfo = () => {
                 <div>
                     <h2>Teachers with passion and knowledge.</h2>
                         <p>who is teaching here? we found many people who are qualified and wants to teach to show their passion
-                            even they teach for free. so by their help we want to educate india in a large scale including all rural places </p>
+                            even they teach for free. so by their help we want to educate india in a large scale including all rural places. </p>
                     <p>These people are currently working professionals but wants to give some for a good purpose because they believe in our vision and wants to support to bring up the literacy.</p>
                 </div>
                 <div>
