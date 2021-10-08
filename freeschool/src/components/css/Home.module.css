@@ -4,6 +4,13 @@
   width: 100%;
   padding: 15px 0px;
 }
+.tutorNavContainer{
+    position: fixed;
+  text-align: center;
+  width: 100%;
+  padding: 15px 0px;
+  background-color: rgb(48,105,189);
+}
 .nav {
   width: 70%;
   margin: auto;
