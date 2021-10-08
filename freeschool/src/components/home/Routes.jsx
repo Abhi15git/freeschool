@@ -6,13 +6,14 @@ import HomeNav from './Navbars/HomeNav'
 
 const Routes = () => {
     const {auth} = useContext(Api)
+    console.log(auth)
     return (
         <div>
         <BrowserRouter>
         <HomeNav/>
         <Switch>
             {
-                auth==='false' && <Route exact path="/" component={Home}/>
+                !auth && <Route exact path="/" component={Home}/>
             }
         </Switch>
         </BrowserRouter>
