@@ -7,10 +7,10 @@ export const HomeInfo = () => {
             <div className={styles.aboutDiv1}>
                 <div>
                     <h2>Why learn on our FreeSchool ?</h2>
-                    <p>Tute is a BETT award-winning provider of live and interactive teaching online. We partner with schools and parents to improve pupil attainment by
-                        providing flexible, affordable additional teaching and learning to fill gaps in capacity and curriculum.</p>
-                    <p>Tute's qualified teachers deliver lessons live in our safeguarded online classroom - Tute’s Learning Cloud and improve student outcomes from Grade 3 to Grade 12 for IB, CBSE and ICSE and Grade 3 to A level for IGCSE in over 30 subjects (core subjects like English, Math and Science along with the supplementary subjects like Social Science, Business Studies,
-                        Law etc), deployed by schools as intervention, enrichment, catch-up or alternative provision.</p>
+                    <p>Free school is live and interactive teaching online. We make education possible for all children to improve pupil attainment by
+                        providing flexible, free additional teaching and learning.</p>
+                    <p>Our teachers deliver lessons live in our safeguarded online classroom - we try to improve students knowledge from Grade 3 to Grade 12 CBSE and ICSE (core subjects like English, Math and Science along with the supplementary subjects like Social Science,
+                    etc)</p>
                 </div>
                 <div>
                     <img src="https://blog.wiziq.com/wp-content/uploads/2018/03/become-online-teacher.jpg" alt="" />
@@ -22,19 +22,17 @@ export const HomeInfo = () => {
                 </div>
                 <div>
                     <h2>Learn from anywhere in India.</h2>
-                    <p>Tute is a BETT award-winning provider of live and interactive teaching online. We partner with schools and parents to improve pupil attainment by
-                        providing flexible, affordable additional teaching and learning to fill gaps in capacity and curriculum.</p>
-                    <p>Tute's qualified teachers deliver lessons live in our safeguarded online classroom - Tute’s Learning Cloud and improve student outcomes from Grade 3 to Grade 12 for IB, CBSE and ICSE and Grade 3 to A level for IGCSE in over 30 subjects (core subjects like English, Math and Science along with the supplementary subjects like Social Science, Business Studies,
-                        Law etc), deployed by schools as intervention, enrichment, catch-up or alternative provision.</p>
+                        <p>Every Child Has The Right To Learn but due to lack of resources ,they aren't able to get enough guidence to study and improve their knowledge. so, we introuduce online teaching to everywhere
+                            and help those who needs to learn. </p>
+                    <p>Here the students can interact and communicate by voice (microphone on PC), live chat and using an interactive whiteboard. </p>
                 </div>
             </div>
             <div className={styles.aboutDiv1}>
                 <div>
                     <h2>Teachers with passion and knowledge.</h2>
-                    <p>Tute is a BETT award-winning provider of live and interactive teaching online. We partner with schools and parents to improve pupil attainment by
-                        providing flexible, affordable additional teaching and learning to fill gaps in capacity and curriculum.</p>
-                    <p>Tute's qualified teachers deliver lessons live in our safeguarded online classroom - Tute’s Learning Cloud and improve student outcomes from Grade 3 to Grade 12 for IB, CBSE and ICSE and Grade 3 to A level for IGCSE in over 30 subjects (core subjects like English, Math and Science along with the supplementary subjects like Social Science, Business Studies,
-                        Law etc), deployed by schools as intervention, enrichment, catch-up or alternative provision.</p>
+                        <p>who is teaching here? we found many people who are qualified and wants to teach to show their passion
+                            even they teach for free. so by their help we want to educate india in a large scale including all rural places </p>
+                    <p>These people are currently working professionals but wants to give some for a good purpose because they believe in our vision and wants to support to bring up the literacy.</p>
                 </div>
                 <div>
                     <img src="https://cdn.elearningindustry.com/wp-content/uploads/2020/05/virtual-teaching-how-to-crush-it.jpg" alt="" />
