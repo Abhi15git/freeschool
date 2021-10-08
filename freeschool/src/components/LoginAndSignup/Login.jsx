@@ -100,7 +100,8 @@ const Sin = styled.div`
   flex-direction: column;
   background: #ffffff;
   padding: 20px;
-  width: 60%;
+  width: 40%;
+  min-width: 350px;
 
   height: max-content;
   box-sizing: border-box;
@@ -113,7 +114,7 @@ const Sin = styled.div`
   }
   & .MuiFormControl-root {
     width: 100%;
-    min-width: 300px;
+    /* min-width: 300px; */
   }
   & .MuiOutlinedInput-root {
     border-radius: 50px;
@@ -130,7 +131,7 @@ const Sin = styled.div`
   }
   .signSubmit .MuiButton-containedPrimary {
     border-radius: 50px;
-    background-color: #189d0e;
+    background-color: #ff5476;
   }
   .select {
     width: 90%;
