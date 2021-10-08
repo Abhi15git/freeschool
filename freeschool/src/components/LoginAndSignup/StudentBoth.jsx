@@ -5,7 +5,14 @@ import StudentSignup from "./StudentSignup";
 
 export default function StudentBoth() {
   const [isLogin, setIslogin] = useState(false);
-  return <Div>{isLogin ? <StudentLogin /> : <StudentSignup />}</Div>;
+  return (
+    <Div>
+      {isLogin ? <StudentLogin /> : <StudentSignup />}
+      <p className="loginText" onClick={() => setIslogin((pre) => !pre)}>
+        {isLogin ? "Create account |  Singup" : "Already have an account | Login"}
+      </p>
+    </Div>
+  );
 }
 
 const Div = styled.div`
@@ -18,4 +25,9 @@ const Div = styled.div`
   justify-content: center;
   display: flex;
   flex-direction: column;
+
+  .loginText {
+    color: blue;
+    cursor: pointer;
+  }
 `;

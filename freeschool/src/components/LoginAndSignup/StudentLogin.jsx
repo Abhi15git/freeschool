@@ -68,7 +68,7 @@ export default function StudentLogin() {
       </div>
       <div className="signSubmit">
         <Button variant="contained" color="primary" onClick={handelSubmit}>
-          Signup
+          Login
         </Button>
       </div>
     </Sin>
