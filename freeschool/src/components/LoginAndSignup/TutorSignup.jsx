@@ -3,19 +3,25 @@ import { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-export default function StudentLogin() {
+export default function TutorSignup() {
   const [form, setForm] = useState({
+    name: "",
     email: "",
     password: "",
+    subject: "",
   });
   const [error, setError] = useState({
+    name: false,
     email: false,
     password: false,
+    subject: false,
   });
 
   const onEnter = (e) => {
     const { name, value } = e.target;
-
+    if (name === "name") {
+      setError({ ...error, name: false });
+    }
     if (name === "email") {
       setError({ ...error, email: false });
     }
@@ -26,22 +32,39 @@ export default function StudentLogin() {
   };
 
   const validateForm = () => {
-    if (form?.email === "" && form?.password === "")
+    if (form?.email === "" && form?.password === "" && form.name === "")
       setError({ email: "Email is required", password: "Password is required" });
+    else if (form?.name === "") setError({ error, name: "Name is required" });
     else if (form?.email === "") setError({ error, email: "Email is required" });
     else if (form?.password === "") setError({ error, password: "Password is required" });
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form?.email))
+      setError({ error, email: "Invalid email" });
+    else if (form?.password.length < 8)
+      setError({ ...error, password: "Password must be atleast 8 characters long" });
   };
 
   const handelSubmit = (e) => {
     validateForm();
-    if (error.email === false && error.password === false) {
+    if (error.email === false && error.password === false && error.name === false) {
       console.log("1");
     }
   };
+
   return (
     <Sin>
-      <h3>Student Login</h3>
-
+      <h3>Tutor Signup</h3>
+      <div>
+        <TextField
+          id="outlined-basic"
+          label="Name"
+          variant="outlined"
+          onKeyUp={onEnter}
+          name="name"
+          required
+          error={error.name}
+          helperText={error.name}
+        />
+      </div>
       <div>
         <TextField
           id="outlined-basic"
@@ -66,9 +89,20 @@ export default function StudentLogin() {
           helperText={error.password}
         />
       </div>
+      <div>
+        <TextField
+          id="outlined-basic"
+          label="Subject"
+          variant="outlined"
+          onKeyUp={onEnter}
+          name="subject"
+          error={error.subject}
+          helperText={error.subject}
+        />
+      </div>
       <div className="signSubmit">
         <Button variant="contained" color="primary" onClick={handelSubmit}>
-          Login
+          Signup
         </Button>
       </div>
     </Sin>
