@@ -1,0 +1,98 @@
+.aboutDiv1,
+.aboutDiv2 {
+  margin: auto;
+  width: 60%;
+  /* background-color: aquamarine; */
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 90px;
+}
+.aboutDiv1 > div:nth-child(1),
+.aboutDiv2 > div:nth-child(2) {
+  width: 50%;
+  font-size: 13px;
+}
+.aboutDiv1 h2,
+.aboutDiv2 h2 {
+  color: #336699;
+  font-size: 19px;
+}
+.aboutDiv1 > div:nth-child(2),
+.aboutDiv2 > div:nth-child(1) {
+  width: 40%;
+  background-color: black;
+  height: 200px;
+  margin-left: 110px;
+  margin-top: 40px;
+}
+.homeInfo img {
+  width: 100%;
+}
+
+.aboutDiv2 > div:nth-child(1) {
+  margin-left: 0px;
+}
+.aboutDiv2 > div:nth-child(2) {
+  margin-left: 110px;
+}
+
+/* logoo */
+.logo {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  margin-left: 15%;
+  width: 130px;
+}
+
+.logo > p:nth-child(1) {
+  font-size: 25px;
+  font-weight: 500;
+  font-family: sans-serif;
+  margin-top: 30px;
+}
+.logo > p:nth-child(2) {
+  margin-top: 5px;
+  font-size: 50px;
+  font-family: fantasy;
+}
+.logo > p:nth-child(3) {
+  font-size: 18px;
+  margin-top: 6px;
+}
+/* footer */
+.footer {
+  width: 100%;
+  height: auto;
+  background-color: #1362a4;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.footer > div {
+  margin: auto;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+}
+.footer > div > div {
+  width: 400px;
+  color: white;
+}
+.footer > div > div:nth-child(1) {
+  width: 700px;
+  color: white;
+  margin-right: 40px;
+}
+.footer > div > div:nth-child(1) > p {
+  margin-top: -40px;
+  margin-left: 60px;
+  font-size: 15px;
+}
+.footer > div > div:nth-child(2) > p,
+.footer > div > div:nth-child(3) > p {
+  margin-top: -10px;
+  color: white;
+}
+.footer > div > div:nth-child(3) {
+  color: white;
+}
