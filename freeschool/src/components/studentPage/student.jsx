@@ -4,6 +4,11 @@ export const Student = () => {
     return (
         <div>
             <div className={styles.nav}>
+                <div className={styles.logo}>
+                    <p>free</p>
+                <p>S</p>
+                <p>chool</p>
+                </div>
             </div>
             <div className={styles.filters}>
                 <div>
@@ -44,6 +49,30 @@ export const Student = () => {
                 <ClassDetails />
                 <ClassDetails/>
                 
+            </div>
+            <div className={styles.footer}>
+                <div>
+                    <div>
+                        <div className={styles.logo}>
+                        <p>free</p>
+                        <p>S</p>
+                        <p>chool</p>
+                        </div>
+                        <p>
+                            Free school creates multiple ways to learn with no cost and it shows the passion of teaching and learning. 
+                        </p>
+                    </div>
+                    <div>
+                        <h3>About</h3>
+                        <p>About our teachers</p>
+                        <p>Our vision</p>
+                    </div>
+                    <div>
+                        <h3>Contact us</h3>
+                        <p>LinkedIn</p>
+                        <p>Facebook</p>
+                    </div>
+                </div>
             </div>
         </div>
     )
