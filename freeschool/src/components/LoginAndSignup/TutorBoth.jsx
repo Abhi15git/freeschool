@@ -1,13 +1,13 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Login from "./Login";
-import StudentSignup from "./StudentSignup";
+import TutorSignup from "./TutorSignup";
 
-export default function StudentBoth() {
+export default function TutorBoth() {
   const [isLogin, setIslogin] = useState(false);
   return (
     <Div>
-      {isLogin ? <Login /> : <StudentSignup />}
+      {isLogin ? <Login /> : <TutorSignup />}
       <p className="loginText" onClick={() => setIslogin((pre) => !pre)}>
         {isLogin ? "Create account |  Singup" : "Already have an account | Login"}
       </p>
