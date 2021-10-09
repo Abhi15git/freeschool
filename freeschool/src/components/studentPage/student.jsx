@@ -3,13 +3,13 @@ import styles from './student.module.css'
 export const Student = () => {
     return (
         <div>
-            <div className={styles.nav}>
+            {/* <div className={styles.nav}>
                 <div className={styles.logo}>
                     <p>free</p>
                 <p>S</p>
                 <p>chool</p>
                 </div>
-            </div>
+            </div> */}
             <div className={styles.filters}>
                 <div>
                     <p>Refined Search</p>

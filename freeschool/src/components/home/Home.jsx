@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../css/Home.module.css";
 import Button from "@mui/material/Button";
 import { useHistory } from "react-router";
+import {HomeInfo} from './HomeInfo'
 
 const Home = () => {
   const history = useHistory();
@@ -34,7 +35,7 @@ const Home = () => {
       </div>
     </div>
 
-
+<HomeInfo/>
 
     </div>
   );

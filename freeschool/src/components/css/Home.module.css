@@ -4,37 +4,73 @@
     z-index: 10;
   text-align: center;
   width: 100%;
-  padding: 15px 0px;
+  padding: 8px 0px;
+  background-color: rgba(0, 0, 0, 0.575);
 }
 .tutorNavContainer{
     position: fixed;
     top: 0%;
   text-align: center;
   width: 100%;
-  padding: 15px 0px;
+  padding: 10px 0px;
   background-color: rgb(48,105,189);
+}
+.tutorNavContainer .links a:hover{
+  color:rgb(149, 174, 212) ;
+}
+.tutorNavContainer button{
+  color: aliceblue;
 }
 .nav {
   width: 70%;
   margin: auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logo a {
    text-decoration: none;
    color: white;
 }
-.logo a h1{
+/* .logo a h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-top: 0px;
-}
+} */
 .links{
     width: 60%;
     display: flex;
     justify-content: space-between;
     font-size: small;
-    
+    align-items: center;
+}
+.links a:hover{
+  color:rgb(51,102,153);
+  cursor: pointer;
+}
+/* logoo */
+.logo {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  width: 130px;
+  margin-top: -5px;
+}
+
+.logo > span:nth-child(1) {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: sans-serif;
+  margin-top: 30px;
+}
+.logo > span:nth-child(2) {
+  margin-top: 5px;
+  font-size: 35px;
+  font-family: fantasy;
+}
+.logo > span:nth-child(3) {
+  font-size: 15px;
+  margin-top: 6px;
 }
 
 .links a{
@@ -46,6 +82,7 @@
 .homeContainer{
     position: relative;
     color: white;
+    text-align: center;
 }
 .homeContainer::after{
     position: absolute;
@@ -53,10 +90,10 @@
     left: 0%;
     z-index: -10;
     content: '';
-    background: url('https://images.unsplash.com/photo-1473649085228-583485e6e4d7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1332&q=80') no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('https://images.unsplash.com/photo-1473649085228-583485e6e4d7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1332&q=80') no-repeat;
     height: 100%;
     width: 100%;
-    filter: blur(2px);
+    filter: blur(1px);
     background-position: 75% 40%;
 }
 .topHead {
