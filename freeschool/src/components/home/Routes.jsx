@@ -43,6 +43,7 @@ const Routes = () => {
             <Route exact path="/studentsignin" component={StudentBoth} />
             <Route exact path="/studentdashboard/liveclasses" component={Student}/>
             <Route exact path="/tutorslist" component={TutorsList}/>
+            <Route exact path="/studentdashboard/tutorslist" component={TutorsList}/>
             <Route component={NotFound}/>
         
         </Switch>
