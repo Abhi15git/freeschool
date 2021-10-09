@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import Button from "@material-ui/core/Button";
 import { PaymentDetails } from "./PaymentDetails";
 function PaymentPage() {
   const { id } = useParams();
@@ -12,7 +13,8 @@ function PaymentPage() {
     name: "",
     email: "",
     amount: 1,
-    number: "",
+    phone: "",
+    children: { id },
   });
 
   const [color, setColor] = useState(1);
@@ -22,16 +24,54 @@ function PaymentPage() {
     setForm({ ...form, [name]: value });
   };
 
-  useEffect(() => {
+  const donor = async () => {
+    let donator = await axios.post(`https://schoolfree.herokuapp.com/donator`);
+  };
+
+  const amountUpdate = async () => {
+    let update = await axios.patch(
+      `https://schoolfree.herokuapp.com/children/${id}/add/${form.amount}`
+    );
+  };
+
+  const handelSubmit = () => {
+    if (form.amount < 10) {
+      alert("Please increase the amount");
+      return;
+    }
+
+    if (form.name === "" || form.email === "" || form.phone === "") {
+      alert("Please fill the form");
+      return;
+    }
+    donor();
+    amountUpdate();
+  };
+
+  const getChild = () => {
     axios
       .get(`https://schoolfree.herokuapp.com/children/${id}`)
       .then((res) => {
         setChild(res.data.children);
+        console.log(res.data.children);
       })
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  useEffect(() => {
+    getChild();
   }, []);
+
+  const Progress = styled.div`
+    width: ${Number((child?.current_amt / child?.target_amt) * 100)}%;
+    background: rgb(118 255 160);
+    position: absolute;
+    height: 100%;
+    border-radius: 18px;
+  `;
+
   return (
     <Wrapper>
       <h1>{child.details}</h1>
@@ -47,10 +87,11 @@ function PaymentPage() {
         </Left>
         <Right>
           <h3>Make an Impact</h3>
-          <p>Raised ₹ 25</p>
+          <p>Raised ₹ {child?.current_amt}</p>
           <div className="progressCon">
+            <p>{Math.ceil((child?.current_amt / child?.target_amt) * 100) || 0} %</p>
             <Progress />
-            <p>₹ 200</p>
+            <p>₹ {child?.target_amt}</p>
           </div>
           <div className="amount">
             <div
@@ -103,37 +144,64 @@ function PaymentPage() {
           </p>
           <div className="form">
             <div>
-              <TextField id="standard-basic" label="Name" />
+              <TextField
+                onChange={handelChange}
+                value={form.name}
+                id="standard-basic"
+                label="Name"
+              />
             </div>
             <div>
-              <TextField id="standard-basic" label="Email" />
+              <TextField
+                onChange={handelChange}
+                value={form.email}
+                id="standard-basic"
+                label="Email"
+              />
             </div>
             <div>
-              <TextField id="standard-basic" label="Phone" />
+              <TextField
+                onChange={handelChange}
+                value={form.phone}
+                id="standard-basic"
+                label="Phone"
+              />
             </div>
           </div>
         </Right>
       </Container>
       <PaymentDetails />
+      <Button onClick={handelSubmit} variant="contained" color="primary">
+        Donate
+      </Button>
     </Wrapper>
   );
 }
 
 export default PaymentPage;
 
-const Progress = styled.div`
-  width: ${Number((50 / 200) * 100)}%;
-  background: rgb(118 255 160);
-  position: absolute;
-  height: 100%;
-  border-radius: 18px;
-`;
 const Wrapper = styled.div`
   margin: 80px 0;
   & > h1 {
     color: #444444;
     text-align: center;
     font-weight: 400;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .MuiButton-containedPrimary {
+    background: #ff5050;
+    width: 200px;
+    height: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 15px;
+  }
+  .MuiButton-containedPrimary:hover {
+    background: #cf4242;
   }
 `;
 const Container = styled.div`
@@ -193,11 +261,17 @@ const Right = styled.div`
     margin: auto;
     margin-top: 30px;
   }
-  .progressCon p {
+  .progressCon p:nth-child(3) {
     margin-top: 3px;
     position: absolute;
     top: -25px;
     right: 0px;
+  }
+  .progressCon p:nth-child(1) {
+    margin-top: 3px;
+    position: absolute;
+    top: -25px;
+    left: 0px;
   }
   & > div {
     margin-top: 15px;
