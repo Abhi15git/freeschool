@@ -137,11 +137,14 @@ const Wrapper = styled.div`
   }
 `;
 const Container = styled.div`
+  height: max-content;
+  padding-bottom: 20px;
   width: 80%;
   margin: 50px auto;
   display: flex;
   max-width: 1250px;
   min-width: 600px;
+  box-sizing: border-box;
   /* border: solid; */
 `;
 const Left = styled.div`
@@ -149,6 +152,8 @@ const Left = styled.div`
   /* border: solid red; */
   box-shadow: 0 5px 15px 1px rgb(0 0 0 / 20%);
   border-radius: 18px;
+  border: solid 1px #ccc;
+  background: #f7f7f7;
   padding: 0 20px;
   & > h4 {
     color: #444444;
@@ -171,6 +176,9 @@ const Right = styled.div`
   border-radius: 15px;
   box-shadow: 0 5px 15px 1px rgb(0 0 0 / 20%);
   text-align: center;
+  height: max-content;
+  box-sizing: border-box;
+  padding-bottom: 30px;
   .progressCon {
     position: relative;
     height: 10px;
