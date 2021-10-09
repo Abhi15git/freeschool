@@ -30,11 +30,11 @@ const Routes = () => {
     <div>
       <BrowserRouter>
         {!auth && <HomeNav />}
-        {auth === "tutor" && <TutorNav />}
+        {auth === "teacher" && <TutorNav />}
         {auth ==="student" && <StudentNav/>}
         <Switch>
             {!auth && <Route exact path="/" component={Home} />}
-            {auth === "tutor" && <Route exact path="/" component={TutorLive} />}
+            {auth === "teacher" && <Route exact path="/" component={TutorLive} />}
             {auth === "student" && <Route exact path="/" component={Student}/>}
             <Route exact path="/tutordashboard/createsession" component={CreateSession} />
             <Route exact path="/tutordashboard/livesession" component={TutorLive} />
@@ -43,6 +43,7 @@ const Routes = () => {
             <Route exact path="/studentsignin" component={StudentBoth} />
             <Route exact path="/studentdashboard/liveclasses" component={Student}/>
             <Route exact path="/tutorslist" component={TutorsList}/>
+            <Route exact path="/studentdashboard/tutorslist" component={TutorsList}/>
             <Route component={NotFound}/>
         
         </Switch>

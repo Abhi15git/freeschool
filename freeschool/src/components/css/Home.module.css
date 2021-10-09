@@ -79,23 +79,25 @@
   color: white;
 }
 
-.homeContainer{
+.homeContainer {
   width: 100%;
-    position: relative;
-    color: white;
-    text-align: center;
+  position: relative;
+  color: white;
+  text-align: center;
 }
-.homeContainer::after{
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    z-index: -10;
-    content: '';
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('https://images.unsplash.com/photo-1473649085228-583485e6e4d7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1332&q=80') no-repeat;
-    height: 100%;
-    width: 100%;
-    filter: blur(1px);
-    background-position: 75% 40%;
+.homeContainer::after {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: -10;
+  content: "";
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1473649085228-583485e6e4d7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1332&q=80")
+      no-repeat;
+  height: 100%;
+  width: 100%;
+  filter: blur(1px);
+  background-position: 75% 40%;
 }
 .topHead {
   padding: 100px 0px 70px 0px;
