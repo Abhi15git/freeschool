@@ -48,7 +48,7 @@ const TutorLive = () => {
                         <p>Time</p>
                         <h4>{data.time}</h4>
                     </div>
-                    <button>Attend live</button>
+                    <button>Start Session</button>
                 </div>
                 })
             }

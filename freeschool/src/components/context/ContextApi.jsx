@@ -51,11 +51,11 @@ const handleTutorRegister = (payload, history, setAuth, setUser) => {
     .then((res) => {
       let user = {
         auth: "tutor",
-        user: res.data.teacher,
+        user: res.data.user,
       };
       localStorage.setItem("sessionData", JSON.stringify(user));
       setAuth("tutor");
-      setUser(res.data.teacher);
+      setUser(res.data.user);
       history.replace("/");
     })
     .catch((err) => console.log(err));
@@ -67,12 +67,12 @@ const handleTutorLogin = (payload, history, setAuth, setUser) => {
     .post(`${process.env.REACT_APP_API_KEY}login`, payload)
     .then((res) => {
       let user = {
-        auth: "tutor",
-        user: res.data.teacher,
+        auth: res.data.user.role,
+        user: res.data.user,
       };
       localStorage.setItem("sessionData", JSON.stringify(user));
-      setAuth("tutor");
-      setUser(res.data.teacher);
+      setAuth(res.data.user.role);
+      setUser(res.data.user);
       history.replace("/");
     })
     .catch((err) => console.log(err));
@@ -86,11 +86,11 @@ const handleStudentRegister = (payload, history, setAuth, setUser) => {
     .then((res) => {
       let user = {
         auth: "student",
-        user: res.data.teacher,
+        user: res.data.user,
       };
       localStorage.setItem("sessionData", JSON.stringify(user));
       setAuth("student");
-      setUser(res.data.student);
+      setUser(res.data.user);
       history.replace("/");
     })
     .catch((err) => console.log(err));
@@ -103,11 +103,11 @@ const handleStudentLogin = (payload, history, setAuth, setUser) => {
     .then((res) => {
       let user = {
         auth: "student",
-        user: res.data.teacher,
+        user: res.data.user,
       };
       localStorage.setItem("sessionData", JSON.stringify(user));
       setAuth("student");
-      setUser(res.data.teacher);
+      setUser(res.data.user);
       history.replace("/");
     })
     .catch((err) => console.log(err));
@@ -127,6 +127,6 @@ const handleGetTeachers = (setTeachers) => {
 const handleGetClasses = (setClasses) => {
   axios
     .get(`${process.env.REACT_APP_API_KEY}classes`)
-    .then((res) => console.log(res.data.classes))
+    .then((res) => setClasses(res.data.classes))
     .catch((err) => console.log(err));
 };
