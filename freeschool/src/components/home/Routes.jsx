@@ -9,8 +9,9 @@ import HomeNav from "./Navbars/HomeNav";
 import TutorNav from "./Navbars/TutorNav";
 import NotFound from "./NotFound";
 import TutorLive from "./TutorLive";
-import { Student } from "../studentPage/Student";
+import { Student } from "../studentPage/student";
 import StudentNav from "./Navbars/StudentNav";
+import { TutorsList } from "../tutorsList/tutorsList";
 
 const Routes = () => {
   const { auth, setAuth, setUser } = useContext(Api);
@@ -41,6 +42,7 @@ const Routes = () => {
             <Route exact path="/tutorsignin" component={TutorBoth} />
             <Route exact path="/studentsignin" component={StudentBoth} />
             <Route exact path="/studentdashboard/liveclasses" component={Student}/>
+            <Route exact path="/tutorslist" component={TutorsList}/>
             <Route component={NotFound}/>
         
         </Switch>

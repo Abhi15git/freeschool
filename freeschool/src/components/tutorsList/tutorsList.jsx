@@ -28,13 +28,13 @@ const teach = [{
 export const TutorsList = () => {
     return (
         <div>
-            <div className={styles.nav}>
+            {/* <div className={styles.nav}>
                 <div className={styles.logo}>
                     <p>free</p>
                 <p>S</p>
                 <p>chool</p>
                 </div>
-            </div>
+            </div> */}
             <div className={styles.tutorList}>
                 <h2>Our Teachers</h2>
                 <p>"we have wonderfull teachers who work for a good purpose and believes in our vision."</p>

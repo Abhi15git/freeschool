@@ -19,7 +19,7 @@ const HomeNav = () => {
 
             <div className={styles.links}>
             <Link to="/liveclasses">Live Classes</Link>
-            <Link to="/">Tutors list</Link>
+            <Link to="/tutorslist">Tutors list</Link>
             <Link to="/">Contact Us</Link>
             <Link to="/studentsignin"><Button variant="outlined" size="small" color="primary" >Sign in</Button></Link>
             </div>
