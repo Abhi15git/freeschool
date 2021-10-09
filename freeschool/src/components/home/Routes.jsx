@@ -14,6 +14,8 @@ import StudentNav from "./Navbars/StudentNav";
 import { TutorsList } from "../tutorsList/tutorsList";
 import Chat from "../Chat/Chat";
 
+import DonationPage from "../DonationPage/DonationPage";
+import PaymentPage from "../DonationPage/PaymentPage/PaymentPage";
 const Routes = () => {
   const { auth, setAuth, setUser } = useContext(Api);
   useEffect(() => {
@@ -44,6 +46,12 @@ const Routes = () => {
           <Route exact path="/studentdashboard/liveclasses" component={Student} />
           <Route exact path="/tutorslist" component={TutorsList} />
           <Route exact path="/studentdashboard/tutorslist" component={TutorsList} />
+          <Route exact path="/donation">
+            <DonationPage />
+          </Route>
+          <Route path="/donation/:id">
+            <PaymentPage />
+          </Route>
           <Route exact path="/chatroom" component={Chat} />
           <Route component={NotFound} />
         </Switch>
