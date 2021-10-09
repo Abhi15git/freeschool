@@ -17,6 +17,7 @@ const ContextApi = ({ children }) => {
   return (
     <Api.Provider
       value={{
+        user,
         auth,
         setAuth,
         setUser,
