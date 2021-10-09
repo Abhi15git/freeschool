@@ -1,12 +1,16 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
+import { Api } from "../context/ContextApi";
+import { useHistory } from "react-router";
 
 export default function Login() {
-  const [type, setType] = useState();
+  const { handleTutorLogin, handleStudentLogin, setAuth, setUser } = useContext(Api);
+  const history = useHistory();
+
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -24,9 +28,6 @@ export default function Login() {
     }
     if (name === "password") {
       setError({ ...error, password: false });
-    }
-    if (name === "type") {
-      setType(value);
     } else {
       setForm({ ...form, [name]: value });
     }
@@ -42,7 +43,7 @@ export default function Login() {
   const handelSubmit = (e) => {
     validateForm();
     if (error.email === false && error.password === false) {
-      console.log(form, type);
+      handleTutorLogin(form, history, setAuth, setUser);
     }
   };
   return (
@@ -73,19 +74,7 @@ export default function Login() {
           helperText={error.password}
         />
       </div>
-      <div>
-        <Select
-          className="select"
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={type}
-          name="type"
-          onChange={onEnter}
-        >
-          <MenuItem value="student">Student</MenuItem>
-          <MenuItem value="tutor">Tutor</MenuItem>
-        </Select>
-      </div>
+
       <div className="signSubmit">
         <Button variant="contained" color="primary" onClick={handelSubmit}>
           Login
@@ -100,8 +89,8 @@ const Sin = styled.div`
   flex-direction: column;
   background: #ffffff;
   padding: 20px;
-  width: 60%;
-
+  width: 40%;
+  min-width: 350px;
   height: max-content;
   box-sizing: border-box;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -113,12 +102,11 @@ const Sin = styled.div`
   }
   & .MuiFormControl-root {
     width: 100%;
-    min-width: 300px;
+    /* min-width: 300px; */
   }
   & .MuiOutlinedInput-root {
     border-radius: 50px;
   }
-
   & .MuiFormHelperText-contained {
     position: absolute;
     bottom: -20px;
@@ -130,7 +118,7 @@ const Sin = styled.div`
   }
   .signSubmit .MuiButton-containedPrimary {
     border-radius: 50px;
-    background-color: #189d0e;
+    background-color: #ff5476;
   }
   .select {
     width: 90%;

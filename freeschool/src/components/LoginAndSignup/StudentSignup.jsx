@@ -1,13 +1,19 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import { Api } from "../context/ContextApi";
+import { useHistory } from "react-router";
 
 export default function StudentSignup() {
+  const { handleStudentRegister, setAuth, setUser } = useContext(Api);
+  const history = useHistory();
+
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
+    role: "student",
   });
   const [error, setError] = useState({
     name: false,
@@ -44,7 +50,7 @@ export default function StudentSignup() {
   const handelSubmit = (e) => {
     validateForm();
     if (error.email === false && error.password === false && error.name === false) {
-      console.log("1");
+      handleStudentRegister(form, history, setAuth, setUser);
     }
   };
 
@@ -101,9 +107,10 @@ const Sin = styled.div`
   flex-direction: column;
   background: #ffffff;
   padding: 20px;
-  width: 60%;
-
+  width: 40%;
+  min-width: 350px;
   height: max-content;
+  margin-top: 90px;
   box-sizing: border-box;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
     0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
@@ -114,7 +121,7 @@ const Sin = styled.div`
   }
   & .MuiFormControl-root {
     width: 100%;
-    min-width: 300px;
+    /* min-width: 300px; */
   }
   & .MuiOutlinedInput-root {
     border-radius: 50px;
@@ -131,6 +138,6 @@ const Sin = styled.div`
   }
   .signSubmit .MuiButton-containedPrimary {
     border-radius: 50px;
-    background-color: #189d0e;
+    background-color: #ff5476;
   }
 `;
