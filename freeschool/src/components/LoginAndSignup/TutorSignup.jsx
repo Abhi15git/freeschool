@@ -6,12 +6,13 @@ import { Api } from "../context/ContextApi";
 import { useHistory } from "react-router";
 
 export default function TutorSignup() {
-  const {handleTutorRegister,setAuth,setUser} = useContext(Api);
+  const { handleTutorRegister, setAuth, setUser } = useContext(Api);
   const history = useHistory();
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
+    role: "tutor",
     subject: "",
   });
   const [error, setError] = useState({
@@ -50,7 +51,7 @@ export default function TutorSignup() {
   const handelSubmit = (e) => {
     validateForm();
     if (error.email === false && error.password === false && error.name === false) {
-      handleTutorRegister(form,history,setAuth,setUser);
+      handleTutorRegister(form, history, setAuth, setUser);
     }
   };
 
@@ -118,9 +119,11 @@ const Sin = styled.div`
   flex-direction: column;
   background: #ffffff;
   padding: 20px;
-  width: 60%;
-
+  margin-top: 100px;
+  width: 40%;
+  min-width: 350px;
   height: max-content;
+
   box-sizing: border-box;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
     0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
@@ -131,7 +134,7 @@ const Sin = styled.div`
   }
   & .MuiFormControl-root {
     width: 100%;
-    min-width: 300px;
+    /* min-width: 300px; */
   }
   & .MuiOutlinedInput-root {
     border-radius: 50px;
@@ -148,6 +151,6 @@ const Sin = styled.div`
   }
   .signSubmit .MuiButton-containedPrimary {
     border-radius: 50px;
-    background-color: #189d0e;
+    background-color: #ff5476;
   }
 `;

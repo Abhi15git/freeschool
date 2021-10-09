@@ -1,24 +1,24 @@
 .navContainer {
-    position: fixed;
-    top: 0%;
-    z-index: 10;
+  position: fixed;
+  top: 0%;
+  z-index: 10;
   text-align: center;
   width: 100%;
   padding: 8px 0px;
   background-color: rgba(0, 0, 0, 0.377);
 }
-.tutorNavContainer{
-    position: fixed;
-    top: 0%;
+.tutorNavContainer {
+  position: fixed;
+  top: 0%;
   text-align: center;
   width: 100%;
   padding: 10px 0px;
-  background-color: rgb(48,105,189);
+  background-color: rgb(48, 105, 189);
 }
-.tutorNavContainer .links a:hover{
-  color:rgb(149, 174, 212) ;
+.tutorNavContainer .links a:hover {
+  color: rgb(149, 174, 212);
 }
-.tutorNavContainer button{
+.tutorNavContainer button {
   color: aliceblue;
 }
 .nav {
@@ -30,22 +30,22 @@
 }
 
 .logo a {
-   text-decoration: none;
-   color: white;
+  text-decoration: none;
+  color: white;
 }
 /* .logo a h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-top: 0px;
 } */
-.links{
-    width: 60%;
-    display: flex;
-    justify-content: space-between;
-    font-size: small;
-    align-items: center;
+.links {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  font-size: small;
+  align-items: center;
 }
-.links a:hover{
-  color:rgb(51,102,153);
+.links a:hover {
+  color: rgb(51, 102, 153);
   cursor: pointer;
 }
 /* logoo */
@@ -73,9 +73,9 @@
   margin-top: 6px;
 }
 
-.links a{
-    text-decoration: none;
-    
+.links a {
+  text-decoration: none;
+
   color: white;
 }
 
@@ -108,6 +108,6 @@
   display: flex;
   justify-content: space-around;
 }
-.homeQuestion button{
-    text-transform: none;
+.homeQuestion button {
+  text-transform: none;
 }
