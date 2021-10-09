@@ -1,5 +1,6 @@
 .classContainer{
     padding: 60px 0px;
+    text-align: center;
 }
 
 .classDetails{
@@ -46,6 +47,11 @@
     background-color: #002a68;
 }
 
+
+.createClassContainer{
+    padding: 60px 0px;
+    text-align: center;
+}
 .createClass{
     width: 40%;
     margin: 0px auto;
@@ -62,8 +68,4 @@
     border: 1px solid rgb(184, 184, 184);
     color: #3069BD;
     font-weight: 600;
-}
-
-.createClassContainer{
-    padding: 60px 0px;
 }

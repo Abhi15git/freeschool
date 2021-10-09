@@ -1,15 +1,35 @@
 import styles from './student.module.css'
 
+const student = [
+    {
+        name: "teach1",
+        class: "7th standard",
+        subject: "maths",
+        time:"3:00PM"
+    }, {
+        name: "teach1",
+        class: "7th standard",
+        subject: "maths",
+        time:"3:00PM"
+    },
+     {
+        name: "teach1",
+        class: "7th standard",
+        subject: "maths",
+        time:"3:00PM"
+    }
+]
+
 export const Student = () => {
     return (
         <div>
-            <div className={styles.nav}>
+            {/* <div className={styles.nav}>
                 <div className={styles.logo}>
                     <p>free</p>
                 <p>S</p>
                 <p>chool</p>
                 </div>
-            </div>
+            </div> */}
             <div className={styles.filters}>
                 <div>
                     <p>Refined Search</p>
@@ -46,8 +66,11 @@ export const Student = () => {
             </div>
             <div className={styles.classesList}>
                 <h2>Today's Live sessions</h2>
-                <ClassDetails />
-                <ClassDetails/>
+                {
+                    student.map((ele) => {
+                        return <ClassDetails ele={ele}/>
+                    })
+                }
                 
             </div>
             <div className={styles.footer}>
@@ -78,24 +101,24 @@ export const Student = () => {
     )
 }
 
-const ClassDetails = () => {
+const ClassDetails = ({ele}) => {
     return (
         <div className={styles.classDetails}>
             <div>
                 <p>Teacher name</p>
-                <h4>Abhishek</h4>
+                <h4>{ele.name}</h4>
             </div>
             <div>
                 <p>Class</p>
-                <h4>7th standard</h4>
+                <h4>{ele.class}</h4>
             </div>
             <div>
                 <p>Subject</p>
-                <h4>Maths</h4>
+                <h4>{ele.subject}</h4>
             </div>
             <div>
                 <p>Time</p>
-                <h4>3:00 PM</h4>
+                <h4>{ele.time}</h4>
             </div>
             <button>Attend live</button>
         </div>
