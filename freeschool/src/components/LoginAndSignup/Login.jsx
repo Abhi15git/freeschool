@@ -22,15 +22,15 @@ export default function Login() {
 
   const onEnter = (e) => {
     const { name, value } = e.target;
-
+    console.log(name, value);
     if (name === "email") {
       setError({ ...error, email: false });
     }
     if (name === "password") {
       setError({ ...error, password: false });
-    } else {
-      setForm({ ...form, [name]: value });
     }
+
+    setForm({ ...form, [name]: value });
   };
 
   const validateForm = () => {
@@ -42,6 +42,7 @@ export default function Login() {
 
   const handelSubmit = (e) => {
     validateForm();
+    console.log(form);
     if (error.email === false && error.password === false) {
       handleTutorLogin(form, history, setAuth, setUser);
     }
@@ -55,7 +56,7 @@ export default function Login() {
           id="outlined-basic"
           label="Email"
           variant="outlined"
-          onKeyUp={onEnter}
+          onChange={onEnter}
           name="email"
           required
           error={error.email}
@@ -67,7 +68,7 @@ export default function Login() {
           id="outlined-basic"
           label="Password"
           variant="outlined"
-          onKeyUp={onEnter}
+          onChange={onEnter}
           name="password"
           required
           error={error.password}
