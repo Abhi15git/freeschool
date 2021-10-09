@@ -1,4 +1,6 @@
 import styles from './student.module.css'
+import React, { useContext, useEffect } from 'react'
+import { Api } from '../context/ContextApi'
 
 const student = [
     {
@@ -21,6 +23,13 @@ const student = [
 ]
 
 export const Student = () => {
+    const {handleGetClasses,classes,setClasses} = useContext(Api);
+
+    useEffect(()=>{
+        // if(!classes.length)
+        // handleGetClasses(setClasses)
+      },[])
+
     return (
         <div>
             {/* <div className={styles.nav}>
@@ -67,7 +76,7 @@ export const Student = () => {
             <div className={styles.classesList}>
                 <h2>Today's Live sessions</h2>
                 {
-                    student.map((ele) => {
+                    classes.map((ele) => {
                         return <ClassDetails ele={ele}/>
                     })
                 }
