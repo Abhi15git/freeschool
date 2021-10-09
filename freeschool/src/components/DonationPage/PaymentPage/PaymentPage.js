@@ -43,15 +43,15 @@ margin:80px 0;
 }
 `;
 const Container = styled.div`
-width: 90%;
+width: 80%;
 margin: 50px auto;
 display: flex;
 max-width: 1250px;
 min-width: 600px;
-/* border: solid; */
+border: solid;
 `;
 const Left = styled.div`
-flex: 0.5;
+flex: 0.6;
 /* border: solid red; */
 padding: 0 20px;
 &>h4{
@@ -69,7 +69,7 @@ padding: 0 20px;
 }
 `;
 const Right = styled.div`
-flex: 0.5;
+flex: 0.4;
 border: solid 1px #ccc;
 `;
 
