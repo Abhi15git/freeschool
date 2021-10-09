@@ -1,9 +1,13 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import { Api } from "../context/ContextApi";
+import { useHistory } from "react-router";
 
 export default function TutorSignup() {
+  const {handleTutorRegister,setAuth,setUser} = useContext(Api);
+  const history = useHistory();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -46,7 +50,7 @@ export default function TutorSignup() {
   const handelSubmit = (e) => {
     validateForm();
     if (error.email === false && error.password === false && error.name === false) {
-      console.log("1");
+      handleTutorRegister(form,history,setAuth,setUser);
     }
   };
 

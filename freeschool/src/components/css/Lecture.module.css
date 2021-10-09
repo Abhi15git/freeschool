@@ -1,3 +1,7 @@
+.classContainer{
+    padding: 60px 0px;
+}
+
 .classDetails{
     width: 60%;
     height: 50px;
@@ -43,8 +47,12 @@
 }
 
 .createClass{
-    width: 50%;
-    margin: auto;
+    width: 40%;
+    margin: 0px auto;
+    text-align: left;
+}
+.createClass th{
+    width: 250px;
 }
 
 .createClass select{
@@ -54,4 +62,8 @@
     border: 1px solid rgb(184, 184, 184);
     color: #3069BD;
     font-weight: 600;
+}
+
+.createClassContainer{
+    padding: 60px 0px;
 }

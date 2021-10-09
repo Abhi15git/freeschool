@@ -17,7 +17,6 @@ export default function StudentBoth() {
 
 const Div = styled.div`
   box-sizing: border-box;
-  background-color: #cdcdc8;
   height: 300px;
   min-height: 100vh;
   padding: 20px;
@@ -25,7 +24,18 @@ const Div = styled.div`
   justify-content: center;
   display: flex;
   flex-direction: column;
+  position: relative;
 
+  &::after{
+    content:'';
+  background: url('https://www.savethechildren.org.nz/assets/the-issues/education/hero-cta-education__FocusFillWzc1MCwzNTAsInkiLDM1XQ.jpg') no-repeat;
+  background-size: cover;
+  height: 100%;
+    width: 100%;
+    filter: grayscale(45%);
+  position: absolute;
+  z-index: -1;
+  }
   .loginText {
     color: blue;
     cursor: pointer;

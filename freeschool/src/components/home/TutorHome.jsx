@@ -19,28 +19,33 @@ const TutorHome = () => {
         }
     ]
     return (
-        arr.map(data=>{
+        <div className={styles.classContainer}>
+            <h2>Live Lectures</h2>
+            {
+                arr.map(data=>{
 
-            return <div className={styles.classDetails}>
-            <div>
-                <p>Teacher name</p>
-                <h4>{data.name}</h4>
-            </div>
-            <div>
-                <p>Class</p>
-                <h4>{data.class} class</h4>
-            </div>
-            <div>
-                <p>Subject</p>
-                <h4>{data.subject}</h4>
-            </div>
-            <div>
-                <p>Time</p>
-                <h4>{data.time}</h4>
-            </div>
-            <button>Attend live</button>
+                    return <div className={styles.classDetails}>
+                    <div>
+                        <p>Teacher name</p>
+                        <h4>{data.name}</h4>
+                    </div>
+                    <div>
+                        <p>Class</p>
+                        <h4>{data.class} class</h4>
+                    </div>
+                    <div>
+                        <p>Subject</p>
+                        <h4>{data.subject}</h4>
+                    </div>
+                    <div>
+                        <p>Time</p>
+                        <h4>{data.time}</h4>
+                    </div>
+                    <button>Attend live</button>
+                </div>
+                })
+            }
         </div>
-        })
     
     )
 }

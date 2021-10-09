@@ -1,10 +1,13 @@
 
 import { Button, TextField } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { Redirect, useHistory } from 'react-router'
+import { Api } from '../context/ContextApi'
 import styles from '../css/Lecture.module.css'
 
 const CreateSession = () => {
-
+    const {auth} = useContext(Api);
+    const history = useHistory();
     const [lectureDetail,setLectureDetail] = useState({title:'',class:'',teacher:'',subject:'',time:''})
 
     const handleLectureDetail = (e)=>{
@@ -12,8 +15,12 @@ const CreateSession = () => {
         setLectureDetail({...lectureDetail,[name]:value})
     }
 
+    if(!auth)
+    return <Redirect to="/"/>
+
     return (
-        <div>
+        <div className={styles.createClassContainer}>
+            <h2>Create Lectures</h2>
             <table className={styles.createClass}>
                 <tbody>
                 <tr>
