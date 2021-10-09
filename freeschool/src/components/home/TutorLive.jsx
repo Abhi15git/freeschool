@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../css/Lecture.module.css'
 
-const TutorHome = () => {
+const TutorLive = () => {
     let arr = [
         {
             name:'teacher1',
@@ -50,4 +50,4 @@ const TutorHome = () => {
     )
 }
 
-export default TutorHome
+export default TutorLive

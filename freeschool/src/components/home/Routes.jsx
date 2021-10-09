@@ -7,8 +7,10 @@ import CreateSession from "./CreateSession";
 import Home from "./Home";
 import HomeNav from "./Navbars/HomeNav";
 import TutorNav from "./Navbars/TutorNav";
-import TutorHome from "./TutorHome";
 import NotFound from "./NotFound";
+import TutorLive from "./TutorLive";
+import { Student } from "../studentPage/Student";
+import StudentNav from "./Navbars/StudentNav";
 
 const Routes = () => {
   const { auth, setAuth, setUser } = useContext(Api);
@@ -28,12 +30,17 @@ const Routes = () => {
       <BrowserRouter>
         {!auth && <HomeNav />}
         {auth === "tutor" && <TutorNav />}
+        {auth ==="student" && <StudentNav/>}
         <Switch>
             {!auth && <Route exact path="/" component={Home} />}
-            {auth === "tutor" && <Route exact path="/" component={TutorHome} />}
-            <Route exact path="/createsession" component={CreateSession} />
+            {auth === "tutor" && <Route exact path="/" component={TutorLive} />}
+            {auth === "student" && <Route exact path="/" component={Student}/>}
+            <Route exact path="/tutordashboard/createsession" component={CreateSession} />
+            <Route exact path="/tutordashboard/livesession" component={TutorLive} />
+            <Route exact path="/liveclasses" component={Student} />
             <Route exact path="/tutorsignin" component={TutorBoth} />
             <Route exact path="/studentsignin" component={StudentBoth} />
+            <Route exact path="/studentdashboard/liveclasses" component={Student}/>
             <Route component={NotFound}/>
         
         </Switch>
