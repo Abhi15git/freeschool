@@ -12,6 +12,7 @@ const Div = styled.div`
   /* height: 43px; */
   width: 100%;
   padding: 7px 24px;
+  box-sizing: border-box;
   display: flex;
   padding: 7px 24px;
   justify-content: ${(props) => (props.currentUser ? "right" : "left")};

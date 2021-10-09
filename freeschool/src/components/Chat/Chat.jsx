@@ -31,7 +31,7 @@ export default function Chat({ setChat }) {
   const [userSocketId, setUsersocketId] = useState();
 
   useEffect(() => {
-    socket.current = io("https://schoolfree.herokuapp.com");
+    socket.current = io("http://localhost:3001");
     socket.current.on("welcome", (data) => {
       //console.log(data);
     });
@@ -46,7 +46,7 @@ export default function Chat({ setChat }) {
     });
 
     socket.current.on("getUsers", (users) => {
-      //console.log("users", users);
+      console.log("users", users);
       setUsersocketId(users);
     });
   }, [user]);
@@ -64,13 +64,13 @@ export default function Chat({ setChat }) {
   }, []);
 
   async function getConversation() {
-    let res = await axios.get(`https://schoolfree.herokuapp.com/chatroom/${user._id}`);
+    let res = await axios.get(`http://localhost:3001/chatroom/${user._id}`);
     setChatroom(res.data.chatroom);
     console.log(res.data.chatroom, "chatroom");
   }
   async function getMsg() {
     try {
-      const res = await axios.get(`https://schoolfree.herokuapp.com/msg/${currentChat._id}`);
+      const res = await axios.get(`http://localhost:3001/msg/${currentChat._id}`);
       //console.log(res, "msg");
       setMessages(res.data.allMsg);
     } catch (e) {
@@ -102,7 +102,7 @@ export default function Chat({ setChat }) {
     });
 
     try {
-      const res = await axios.post(`https://schoolfree.herokuapp.com/msg`, payload);
+      const res = await axios.post(`http://localhost:3001/msg`, payload);
       //console.log(res.data.msg);
       setMessages([...messages, res.data.msg]);
 
@@ -118,12 +118,12 @@ export default function Chat({ setChat }) {
 
   async function getUser(data) {
     const friendsId = data.members.find((a) => a !== user._id);
-    const res = await axios.get(`https://schoolfree.herokuapp.com/users/${friendsId}`);
+    const res = await axios.get(`http://localhost:3001/users/${friendsId}`);
     setFriend(res.data.user);
   }
 
   async function getAllUser() {
-    let data = await axios.get("https://schoolfree.herokuapp.com/users");
+    let data = await axios.get("http://localhost:3001/users");
     setAllUser(data.data.users);
   }
 
@@ -155,7 +155,7 @@ export default function Chat({ setChat }) {
       members: [user._id, friendIdRef.current],
     };
     try {
-      let data = await axios.post("https://schoolfree.herokuapp.com/chatroom", body);
+      let data = await axios.post("http://localhost:3001/chatroom", body);
       getConversation();
       //console.log(data);
     } catch (e) {
@@ -164,7 +164,7 @@ export default function Chat({ setChat }) {
   };
 
   return (
-    <ChatDiv>
+    <ChatDiv isLight={true}>
       <div className="rootDiv">
         <div className="leftPart">
           <div className="leftHeader">
@@ -216,7 +216,7 @@ export default function Chat({ setChat }) {
         <div className="rightPart">
           <div className="rightHeader">
             <span className="currentuserImage">
-              {currentFriend.profile_url ? (
+              {currentFriend.profile_url === "" ? (
                 <img src={currentFriend.profile_url} alt="" />
               ) : (
                 <Avatar alt="Remy Sharp" src="/broken-image.jpg">
@@ -228,15 +228,6 @@ export default function Chat({ setChat }) {
             <div className="optionIcons">
               <div>
                 <IoSettingsOutline />
-              </div>
-              <div>
-                <RiShareBoxLine />
-              </div>
-              <div>
-                <BsChevronDown />
-              </div>
-              <div onClick={() => setChat((pre) => !pre)}>
-                <VscChromeClose />
               </div>
             </div>
           </div>
@@ -294,36 +285,35 @@ export default function Chat({ setChat }) {
 
 const ChatDiv = styled.div`
   /* display: none; */
-  bottom: 10px;
-  right: 30px;
-  border-radius: 1em 1em 0 0;
+  position: relative;
   box-shadow: 0 0.125em 0.75em 0.125em rgba(20, 120, 120, 0.11);
-  top: auto;
-  position: fixed;
+  z-index: 1;
+  height: 100%;
+  min-height: 80vh;
   overflow: hidden;
   background: none;
-  z-index: 51;
-  border: 1px solid #ccc;
-  border-bottom: none;
+  margin-top: 57px;
+  border: 1px solid ${(props) => (props.isLight ? "#ccc" : "#343536")};
+  padding-top: 5px;
   .rootDiv {
-    width: 530px;
-    height: 420px;
-    background-color: #ffffff;
+    background-color: ${(props) => (props.isLight ? "#FFFFFF" : "#1A1A1B")};
     display: flex;
     box-sizing: border-box;
+    min-height: 80vh;
   }
   .leftPart {
     height: 100%;
+    min-height: 90vh;
     -ms-flex: 1 0 30%;
     flex: 1 0 30%;
     max-width: 375px;
     display: flex;
     flex-direction: column;
     transition: all 0.3s;
-    border-right: 1px solid #ccc;
+    border-right: 1px solid ${(props) => (props.isLight ? "#ccc" : "#343536")};
     background-color: rgba(179, 179, 179, 0.1);
     box-sizing: border-box;
-    color: #1c1c1c;
+    color: ${(props) => (props.isLight ? " #1c1c1c" : "#d7dadc")};
     .leftHeader {
       font-size: 16px;
       font-weight: 500;
@@ -333,7 +323,7 @@ const ChatDiv = styled.div`
       display: flex;
       align-items: center;
       justify-content: left;
-      border-bottom: 1px solid #edeff1;
+      border-bottom: 1px solid ${(props) => (props.isLight ? " #edeff1" : "#5e6368")};
     }
     .leftHeader > div:nth-child(1) {
       font-size: 18px;
@@ -344,11 +334,11 @@ const ChatDiv = styled.div`
     .leftHeader input {
       outline: none;
       border: none;
-      color: #1c1c1c;
-      background-color: #ffffff;
+      color: ${(props) => (props.isLight ? " #1c1c1c" : "#d7dadc")};
+      background-color: ${(props) => (props.isLight ? "#FFFFFF" : "#29292A")};
     }
     .leftHeader input::placeholder {
-      color: #1c1c1c;
+      color: ${(props) => (props.isLight ? " #1c1c1c" : "#d7dadc")};
     }
     .leftHeader > div:nth-child(2) {
       display: flex;
@@ -358,21 +348,22 @@ const ChatDiv = styled.div`
     .leftHeader .hidden {
       position: absolute;
       top: 26px;
-      border: 1px solid #ccc;
+      border: 1px solid ${(props) => (props.isLight ? "#ccc" : "#343536")};
       border-radius: 4px;
       padding: 5px;
       font-size: 14px;
       font-weight: 400;
       z-index: 70;
-      background-color: #ffffff;
+      background-color: ${(props) => (props.isLight ? "#FFFFFF" : "#29292A")};
     }
     .hiddenUser {
-      border-bottom: 1px solid #edeff1;
+      border-bottom: 1px solid ${(props) => (props.isLight ? " #edeff1" : "#5e6368")};
       margin: 5px 0px;
       cursor: pointer;
     }
     .hiddenUser:hover {
-      background: rgba(82 75 75 / 10%);
+      background: ${(props) =>
+        props.isLight ? "rgba(82 75 75 / 10%)" : "rgba(255 255 255 / 10%)"};
     }
     .allChatrooms {
       box-sizing: border-box;
@@ -386,9 +377,9 @@ const ChatDiv = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #0079d3;
-      color: #ffffff;
-      fill: #ffffff;
+      background: ${(props) => (props.isLight ? "#0079d3" : "#d7dadc")};
+      color: ${(props) => (props.isLight ? "#ffffff" : "#1a1a1b")};
+      fill: ${(props) => (props.isLight ? "#ffffff" : "#1a1a1b")};
       font-size: 14px;
       font-weight: 700;
       letter-spacing: unset;
@@ -405,6 +396,7 @@ const ChatDiv = styled.div`
   }
   .rightPart {
     height: 100%;
+    min-height: 90vh;
     flex: 2 1 70%;
     position: relative;
     display: flex;
@@ -418,8 +410,8 @@ const ChatDiv = styled.div`
       align-items: center;
       transition: all 0.3s;
       justify-content: space-between;
-      border-bottom: 1px solid #edeff1;
-      color: rgb(26, 26, 27);
+      border-bottom: 1px solid ${(props) => (props.isLight ? " #edeff1" : "#5e6368")};
+      color: ${(props) => (props.isLight ? " rgb(26, 26, 27)" : "#d7dadc")};
     }
     .name {
       flex: 1 1 auto;
@@ -453,62 +445,62 @@ const ChatDiv = styled.div`
       padding: 5px 5px;
       .MuiOutlinedInput-root > input {
         padding: 5px 10px;
-        color: #1c1c1c;
+        color: ${(props) => (props.isLight ? " #1c1c1c" : "#d7dadc")};
       }
       label {
         top: -9px;
-        color: #1c1c1c;
-      }
-      .input {
-        width: 100%;
-        box-sizing: border-box;
-        flex-direction: row;
-        display: flex;
-        align-items: flex-end;
-        margin-bottom: 12px;
-        padding: 8px 16px 10px 5px;
-        border-top: 1px solid #edeff1;
-      }
-      .lastIcons svg {
-        font-size: 25px !important;
-      }
-      .chatFeed {
-        padding: 20px 0px;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        box-sizing: border-box;
-        overflow: auto;
-        overflow-x: hidden;
-        ::-webkit-scrollbar {
-          width: 7px;
-        }
-      }
-      .nochat {
-        text-align: center;
-        color: #1c1c1c;
-        align-self: center;
-        margin-top: 40%;
-        opacity: 0.4;
-        font-size: 20px;
-        font-weight: 500;
+        color: ${(props) => (props.isLight ? " #1c1c1c" : "#d7dadc")};
       }
     }
-    .currentuserImage {
-      width: 22px;
+    .input {
+      width: 100%;
+      box-sizing: border-box;
+      flex-direction: row;
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 12px;
+      padding: 8px 16px 10px 5px;
+      border-top: 1px solid ${(props) => (props.isLight ? " #edeff1" : "#5e6368")};
+    }
+    .lastIcons svg {
+      font-size: 25px !important;
+    }
+    .chatFeed {
+      padding: 20px 0px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      overflow: auto;
+      overflow-x: hidden;
+      ::-webkit-scrollbar {
+        width: 7px;
+      }
+    }
+    .nochat {
+      text-align: center;
+      color: ${(props) => (props.isLight ? " #1c1c1c" : "#d7dadc")};
+      align-self: center;
+      margin-top: 40%;
+      opacity: 0.4;
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+  .currentuserImage {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 5px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    .MuiAvatar-root {
+      width: 23px;
       height: 22px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin-right: 5px;
-      img {
-        width: 100%;
-        height: 100%;
-      }
-      .MuiAvatar-root {
-        width: 23px;
-        height: 22px;
-        font-size: 15px;
-      }
+      font-size: 15px;
     }
   }
 `;
