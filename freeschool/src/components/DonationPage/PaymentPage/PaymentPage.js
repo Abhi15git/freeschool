@@ -2,7 +2,6 @@ import axios from "axios";
 import styled from "styled-components"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-
 function PaymentPage() {
     const { id } = useParams();
     const [child, setChild] = useState({})
@@ -36,6 +35,7 @@ const Wrapper = styled.div`
 
 &>h1{
     color: #444444;
+    text-align: center;
     font-weight: 400;
 }
 `;
