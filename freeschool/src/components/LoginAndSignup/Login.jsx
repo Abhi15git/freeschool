@@ -28,9 +28,9 @@ export default function Login() {
     }
     if (name === "password") {
       setError({ ...error, password: false });
-    } else {
+    } 
       setForm({ ...form, [name]: value });
-    }
+    
   };
 
   const validateForm = () => {
