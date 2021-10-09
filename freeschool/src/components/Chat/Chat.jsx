@@ -31,7 +31,7 @@ export default function Chat({ setChat }) {
   const [userSocketId, setUsersocketId] = useState();
 
   useEffect(() => {
-    socket.current = io("http://localhost:3001");
+    socket.current = io("https://schoolfree.herokuapp.com");
     socket.current.on("welcome", (data) => {
       //console.log(data);
     });
@@ -64,13 +64,13 @@ export default function Chat({ setChat }) {
   }, []);
 
   async function getConversation() {
-    let res = await axios.get(`http://localhost:3001/chatroom/${user._id}`);
+    let res = await axios.get(`https://schoolfree.herokuapp.com/chatroom/${user._id}`);
     setChatroom(res.data.chatroom);
     console.log(res.data.chatroom, "chatroom");
   }
   async function getMsg() {
     try {
-      const res = await axios.get(`http://localhost:3001/msg/${currentChat._id}`);
+      const res = await axios.get(`https://schoolfree.herokuapp.com/msg/${currentChat._id}`);
       //console.log(res, "msg");
       setMessages(res.data.allMsg);
     } catch (e) {
@@ -102,7 +102,7 @@ export default function Chat({ setChat }) {
     });
 
     try {
-      const res = await axios.post(`http://localhost:3001/msg`, payload);
+      const res = await axios.post(`https://schoolfree.herokuapp.com/msg`, payload);
       //console.log(res.data.msg);
       setMessages([...messages, res.data.msg]);
 
@@ -118,13 +118,13 @@ export default function Chat({ setChat }) {
 
   async function getUser(data) {
     const friendsId = data.members.find((a) => a !== user._id);
-    const res = await axios.get(`http://localhost:3001/users/${friendsId}`);
+    const res = await axios.get(`https://schoolfree.herokuapp.com/users/getById/${friendsId}`);
     setFriend(res.data.user);
   }
 
   async function getAllUser() {
-    let data = await axios.get("http://localhost:3001/users");
-    setAllUser(data.data.users);
+    let data = await axios.get("https://schoolfree.herokuapp.com/users/teachers");
+    setAllUser(data.data.teachers);
   }
 
   const [allUser, setAllUser] = useState();
@@ -155,7 +155,7 @@ export default function Chat({ setChat }) {
       members: [user._id, friendIdRef.current],
     };
     try {
-      let data = await axios.post("http://localhost:3001/chatroom", body);
+      let data = await axios.post("https://schoolfree.herokuapp.com/chatroom", body);
       getConversation();
       //console.log(data);
     } catch (e) {

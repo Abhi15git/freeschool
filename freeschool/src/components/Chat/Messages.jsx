@@ -28,6 +28,6 @@ const Div = styled.div`
   }
   .right {
     background: #56a6e1;
-    color: #202020;
+    color: white;
   }
 `;

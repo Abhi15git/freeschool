@@ -12,7 +12,7 @@ export default function AllChatMember({ data, currentUser }) {
   }, []);
 
   async function getUser(friendsId) {
-    const res = await axios.get(`http://localhost:3001/users/${friendsId}`);
+    const res = await axios.get(`https://schoolfree.herokuapp.com/users/getById/${friendsId}`);
     console.log(res.data);
     setUser(res.data.user);
   }
