@@ -3,9 +3,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Api } from '../context/ContextApi'
 import Home from './Home'
 import HomeNav from './Navbars/HomeNav'
-import DonationPage from "../DonationPage/DonationPage";
-import PaymentPage from '../DonationPage/PaymentPage'
-
 
 const Routes = () => {
     const { auth } = useContext(Api)
@@ -13,17 +10,11 @@ const Routes = () => {
     return (
         <div>
             <BrowserRouter>
-                {/* <HomeNav /> */}
+                <HomeNav />
                 <Switch>
                     {
                         !auth && <Route exact path="/" component={Home} />
                     }
-                    <Route exact path="/donation">
-                        <DonationPage />
-                    </Route>
-                    <Route path="/donation/:id">
-                        <PaymentPage />
-                    </Route>
                 </Switch>
             </BrowserRouter>
         </div>
