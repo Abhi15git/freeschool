@@ -8,6 +8,7 @@
   background-color: rgba(0, 0, 0, 0.377);
 }
 .tutorNavContainer {
+  z-index: 2;
   position: fixed;
   top: 0%;
   text-align: center;

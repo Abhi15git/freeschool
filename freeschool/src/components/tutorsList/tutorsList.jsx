@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Api } from "../context/ContextApi";
 import styles from "./tutor.module.css";
+import { useHistory } from "react-router-dom";
 
 const teach = [
   {
@@ -31,6 +32,7 @@ const teach = [
 
 export const TutorsList = () => {
   const { handleGetTeachers, setTeachers, teachers, user } = useContext(Api);
+
   console.log(user, "user");
   useEffect(() => {
     if (!teachers.length) handleGetTeachers(setTeachers);
@@ -82,6 +84,8 @@ export const TutorsList = () => {
 };
 
 const TutorDetails = ({ ele }) => {
+  const { user } = useContext(Api);
+  const history = useHistory();
   return (
     <div className={styles.tutorDetails}>
       <div>
@@ -104,7 +108,17 @@ const TutorDetails = ({ ele }) => {
             </div> */}
       <div>
         <button>Contact</button>
-        <button>message</button>
+        <button
+          onClick={() => {
+            if (user?._id) {
+              history.push("/chatroom");
+            } else {
+              alert("Please Login first");
+            }
+          }}
+        >
+          message
+        </button>
       </div>
     </div>
   );
