@@ -19,7 +19,7 @@ export default function TutorBoth() {
 
 const Div = styled.div`
   text-align: center;
-  height: 300px;
+
   min-height: 100vh;
   padding: 20px;
   align-items: center;
