@@ -26,8 +26,8 @@ export const Student = () => {
     const {handleGetClasses,classes,setClasses} = useContext(Api);
 
     useEffect(()=>{
-        // if(!classes.length)
-        // handleGetClasses(setClasses)
+        if(!classes.length)
+        handleGetClasses(setClasses)
       },[])
 
     return (
@@ -45,6 +45,7 @@ export const Student = () => {
                     <div>
                         <p>Class</p>
                         <select name="class" id="">
+                            <option value="">Select</option>
                             <option value="6">Class 6</option>
                             <option value="7">Class 7</option>
                             <option value="8">Class 8</option>
@@ -57,6 +58,7 @@ export const Student = () => {
                     <div>
                         <p>Syllabus</p>
                         <select name="class" id="">
+                            <option value="">Select</option>
                             <option value="cbse">CBSE</option>
                             <option value="icse">ICSE</option>
                     </select>
@@ -64,6 +66,7 @@ export const Student = () => {
                     <div>
                         <p>Subject</p>
                         <select name="class" id="">
+                            <option value="">Select</option>
                             <option value="maths">Maths</option>
                             <option value="hindi">Hindi</option>
                             <option value="science">Science</option>
@@ -114,8 +117,12 @@ const ClassDetails = ({ele}) => {
     return (
         <div className={styles.classDetails}>
             <div>
+                <p>Topic</p>
+                <h4>{ele.title}</h4>
+            </div>
+            <div>
                 <p>Teacher name</p>
-                <h4>{ele.name}</h4>
+                <h4>{ele.user.name}</h4>
             </div>
             <div>
                 <p>Class</p>
