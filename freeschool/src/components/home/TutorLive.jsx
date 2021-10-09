@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import { Api } from '../context/ContextApi'
 import styles from '../css/Lecture.module.css'
 
 const TutorLive = () => {
+
+    
+
     let arr = [
         {
             name:'teacher1',
@@ -18,6 +22,9 @@ const TutorLive = () => {
             link:'this is a link'
         }
     ]
+
+    
+
     return (
         <div className={styles.classContainer}>
             <h2>Live Lectures</h2>
