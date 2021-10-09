@@ -12,7 +12,7 @@ export default function TutorSignup() {
     name: "",
     email: "",
     password: "",
-    role: "tutor",
+    role: "teacher",
     subject: "",
   });
   const [error, setError] = useState({
