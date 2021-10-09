@@ -80,6 +80,16 @@ const HomeInfo = () => {
             />
           </div>
         </div>
+        <div>
+          <h1>...Share your knowledge with us...</h1>
+          <p>Age or status doesn't matter, all you need is knowledge that can help many... </p>
+        </div>
+        <div>
+          <div>
+            <p>we are here<br/>looking for you..<br/>to welcome a change together</p>
+          <button>Join us to teach</button>
+          </div>
+        </div>
       </div>
       <div className={styles.footer}>
         <div>
