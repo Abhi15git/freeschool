@@ -47,6 +47,7 @@ padding: 0 15px;
     border-radius: 4px;
     background-color: #336699;
     cursor: pointer;
+    margin-bottom: 20px;
     letter-spacing: 1px;
     &:hover{
         color: #336699;
