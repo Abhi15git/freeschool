@@ -1,18 +1,14 @@
 import "./App.css";
 import Routes from "./components/home/Routes";
-import StudentBoth from "./components/LoginAndSignup/StudentBoth";
-import { useState } from "react";
 
-import TutorBoth from "./components/LoginAndSignup/TutorBoth";
+import { useState } from "react";
 
 function App() {
   const [start, setStart] = useState(false);
 
   return (
     <div className="App">
-      {/* <Routes /> */}
-      <StudentBoth />
-      {/* <TutorBoth /> */}
+      <Routes />
     </div>
   );
 }
