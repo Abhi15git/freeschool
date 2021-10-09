@@ -1,11 +1,15 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
+import { Api } from "../context/ContextApi";
+import { useHistory } from "react-router";
 
 export default function Login() {
+const {handleTutorLogin,handleStudentLogin,setAuth,setUser} = useContext(Api)
+const history = useHistory();
   const [type, setType] = useState();
   const [form, setForm] = useState({
     email: "",
@@ -42,7 +46,12 @@ export default function Login() {
   const handelSubmit = (e) => {
     validateForm();
     if (error.email === false && error.password === false) {
-      console.log(form, type);
+      if(type==="tutor"){
+handleTutorLogin(form,history,setAuth,setUser);
+      }
+      else
+      handleStudentLogin(form,history,setAuth,setUser);
+
     }
   };
   return (
