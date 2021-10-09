@@ -1,3 +1,5 @@
+import { useContext, useEffect } from 'react';
+import { Api } from '../context/ContextApi';
 import styles from './tutor.module.css'
 
 const teach = [{
@@ -26,6 +28,14 @@ const teach = [{
 }];
 
 export const TutorsList = () => {
+
+    const {handleGetTeachers,setTeachers,teachers} = useContext(Api);
+
+     useEffect(()=>{
+       if(!teachers.length)
+       handleGetTeachers(setTeachers);
+     },[])
+
     return (
         <div>
             {/* <div className={styles.nav}>
@@ -39,7 +49,7 @@ export const TutorsList = () => {
                 <h2>Our Teachers</h2>
                 <p>"we have wonderfull teachers who work for a good purpose and believes in our vision."</p>
                 {
-                    teach.map((ele) => {
+                    teachers.map((ele) => {
                         return <TutorDetails ele={ele}/>
                     })
                 }
@@ -76,33 +86,25 @@ const TutorDetails = ({ele}) => {
     return (
         <div className={styles.tutorDetails}>
             <div>
-                <img src={ele.url} alt="" />
+                <img src={ele.profile_url} alt="noImage" />
             </div>
             <div>
                 <p>Teacher name</p>
                 <h4>{ele.name}</h4>
             </div>
             <div>
-                <p>Class</p>
-                {
-                    ele.class.map((elem) => {
-                        return <h4>{elem},</h4>
-                    })
-                }
-            </div>
-            <div>
                 <p>Subject</p>
-                {
-                    ele.subject.map((elem) => {
-                        return <h4>{elem},</h4>
-                    })
-                }
+                
+                     <h4>{ele.subject}</h4>
+                  
+                
             </div>
-            <div>
+           
+            {/* <div>
                 <p>qualification</p>
                 <h4>{ele.qualification}</h4>
                 <h4>{ele.profession}</h4>
-            </div>
+            </div> */}
             <div>
                 <button>Contact</button>
             <button>message</button>
