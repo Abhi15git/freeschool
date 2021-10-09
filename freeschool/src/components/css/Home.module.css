@@ -80,6 +80,7 @@
 }
 
 .homeContainer{
+  width: 100%;
     position: relative;
     color: white;
     text-align: center;
