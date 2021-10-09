@@ -22,6 +22,8 @@ function PaymentPage() {
             <Container>
                 <Left>
                     <img src={child.image} alt="" />
+                    <h4>Every monthly donation helps the education of more children like Mamta</h4>
+                    <p>Mamta lives in Aamwal Dhani village. Her father, Gopal, is a laborer and does not earn enough to educate his children. In the family of 6, Mamta was considered to be a burden. Due to limited income and poverty, Mamta's education was discontinued.</p>
                 </Left>
                 <Right>
                 </Right>
@@ -51,7 +53,17 @@ min-width: 600px;
 const Left = styled.div`
 flex: 0.5;
 /* border: solid red; */
-padding: 20px;
+padding: 0 20px;
+&>h4{
+    color: #444444;
+    font-size: 24px;
+    font-weight: 400;
+}
+&>p{
+    color: #444444;
+    font-size: 16px;
+    font-weight: 400;
+}
 &>img{
     width: 100%;
 }
