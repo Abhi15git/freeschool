@@ -4,6 +4,16 @@ const HomeInfo = () => {
   return (
     <>
       <div className={styles.homeInfo}>
+        <div>
+          <h1>Want to join our helping hands ?</h1>
+          <p>Here is what you can do and can beacome a part to educate India...</p>
+        </div>
+        <div>
+          <div>
+            <p>Let's make it possible<br/> with everyone's contribution..</p>
+          <button>Donate Now</button>
+          </div>
+        </div>
         <div className={styles.aboutDiv1}>
           <div>
             <h2>Why learn on our FreeSchool ?</h2>
@@ -68,6 +78,16 @@ const HomeInfo = () => {
               src="https://cdn.elearningindustry.com/wp-content/uploads/2020/05/virtual-teaching-how-to-crush-it.jpg"
               alt=""
             />
+          </div>
+        </div>
+        <div>
+          <h1>...Share your knowledge with us...</h1>
+          <p>Age or status doesn't matter, all you need is knowledge that can help many... </p>
+        </div>
+        <div>
+          <div>
+            <p>we are here<br/>looking for you..<br/>to welcome a change together</p>
+          <button>Join us to teach</button>
           </div>
         </div>
       </div>
