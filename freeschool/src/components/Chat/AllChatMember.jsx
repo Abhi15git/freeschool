@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Avatar from "@material-ui/core/Avatar";
 
-function AllChatMember({ data, currentUser }) {
+export default function AllChatMember({ data, currentUser }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -12,14 +12,15 @@ function AllChatMember({ data, currentUser }) {
   }, []);
 
   async function getUser(friendsId) {
-    const res = await axios.get(`https://reddit-new.herokuapp.com/users/${friendsId}`);
+    const res = await axios.get(`https://schoolfree.herokuapp.com/users/getById/${friendsId}`);
+    console.log(res.data);
     setUser(res.data.user);
   }
 
   return (
     <User>
       <div>
-        {user?.profile_url ? (
+        {user?.profile_url === "" ? (
           <img src={user?.profile_url} alt="" />
         ) : (
           <Avatar alt="Remy Sharp" src="/broken-image.jpg">
@@ -64,4 +65,3 @@ const User = styled.div`
     }
   }
 `;
-export { AllChatMember };
