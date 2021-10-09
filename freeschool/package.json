@@ -11,13 +11,9 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-<<<<<<< HEAD
-    "axios": "^0.22.0",
-=======
     "@zoomus/websdk": "^1.9.9",
     "axios": "^0.22.0",
     "crypto": "^1.0.1",
->>>>>>> c617f4f2a2b7c778dd3d2e4ebd0a88a39479e3d9
     "react": "^17.0.2",
     "react-breadcrumbs-dynamic": "^1.2.1",
     "react-dom": "^17.0.2",

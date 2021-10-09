@@ -12,7 +12,8 @@ import TutorLive from "./TutorLive";
 import { Student } from "../studentPage/student";
 import StudentNav from "./Navbars/StudentNav";
 import { TutorsList } from "../tutorsList/tutorsList";
-
+import DonationPage from "../DonationPage/DonationPage";
+import PaymentPage from '../DonationPage/PaymentPage'
 const Routes = () => {
   const { auth, setAuth, setUser } = useContext(Api);
   useEffect(() => {
@@ -44,8 +45,9 @@ const Routes = () => {
             <Route exact path="/studentdashboard/liveclasses" component={Student}/>
             <Route exact path="/tutorslist" component={TutorsList}/>
             <Route exact path="/studentdashboard/tutorslist" component={TutorsList}/>
-            <Route component={NotFound}/>
-        
+            <Route component={NotFound} />
+            <Route exact path="/donation"> <DonationPage /> </Route>
+            <Route path="/donation/:id"> <PaymentPage /> </Route>
         </Switch>
       </BrowserRouter>
     </div>
