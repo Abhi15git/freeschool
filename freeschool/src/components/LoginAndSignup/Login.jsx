@@ -8,9 +8,9 @@ import { Api } from "../context/ContextApi";
 import { useHistory } from "react-router";
 
 export default function Login() {
-const {handleTutorLogin,handleStudentLogin,setAuth,setUser} = useContext(Api)
-const history = useHistory();
-  const [type, setType] = useState();
+  const { handleTutorLogin, handleStudentLogin, setAuth, setUser } = useContext(Api);
+  const history = useHistory();
+
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -28,9 +28,6 @@ const history = useHistory();
     }
     if (name === "password") {
       setError({ ...error, password: false });
-    }
-    if (name === "type") {
-      setType(value);
     } else {
       setForm({ ...form, [name]: value });
     }
@@ -46,12 +43,7 @@ const history = useHistory();
   const handelSubmit = (e) => {
     validateForm();
     if (error.email === false && error.password === false) {
-      if(type==="tutor"){
-handleTutorLogin(form,history,setAuth,setUser);
-      }
-      else
-      handleStudentLogin(form,history,setAuth,setUser);
-
+      handleTutorLogin(form, history, setAuth, setUser);
     }
   };
   return (
@@ -82,19 +74,7 @@ handleTutorLogin(form,history,setAuth,setUser);
           helperText={error.password}
         />
       </div>
-      <div>
-        <Select
-          className="select"
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={type}
-          name="type"
-          onChange={onEnter}
-        >
-          <MenuItem value="student">Student</MenuItem>
-          <MenuItem value="tutor">Tutor</MenuItem>
-        </Select>
-      </div>
+
       <div className="signSubmit">
         <Button variant="contained" color="primary" onClick={handelSubmit}>
           Login
@@ -111,7 +91,6 @@ const Sin = styled.div`
   padding: 20px;
   width: 40%;
   min-width: 350px;
-
   height: max-content;
   box-sizing: border-box;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -128,7 +107,6 @@ const Sin = styled.div`
   & .MuiOutlinedInput-root {
     border-radius: 50px;
   }
-
   & .MuiFormHelperText-contained {
     position: absolute;
     bottom: -20px;

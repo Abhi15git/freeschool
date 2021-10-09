@@ -6,14 +6,14 @@ import { Api } from "../context/ContextApi";
 import { useHistory } from "react-router";
 
 export default function StudentSignup() {
-  const {handleStudentRegister,setAuth,setUser} = useContext(Api);
+  const { handleStudentRegister, setAuth, setUser } = useContext(Api);
   const history = useHistory();
-
 
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
+    role: "student",
   });
   const [error, setError] = useState({
     name: false,
@@ -50,7 +50,7 @@ export default function StudentSignup() {
   const handelSubmit = (e) => {
     validateForm();
     if (error.email === false && error.password === false && error.name === false) {
-      handleStudentRegister(form,history,setAuth,setUser)
+      handleStudentRegister(form, history, setAuth, setUser);
     }
   };
 
