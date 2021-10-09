@@ -29,76 +29,29 @@
     font-size: 18px;
     margin-top: 6px;
 }
-
-/* filters */
-
-.filters{
-    height: auto;
-    padding-top: 80px;
-}
-.filters>div{
-    height: auto;
-    /* background-color: #3069BD; */
-    width: 60%;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    /* margin-top: 50px; */
-}
-.filters>div>p{
-    font-weight: 700;
-    margin-right: 40px;
-    font-size: 19px;
-
-}
-.filters>div>div{
-    margin-left: 60px;
-}
-.filters>div>div>p{
-    color: #838383;
-    margin-top: -5px;
-    margin-bottom: 10px;
-}
-.filters select{
-    height: 30px;
-    width: 160px;
-    border-radius: 5px;
-    border: 1px solid rgb(184, 184, 184);
-    color: #3069BD;
-    font-weight: 600;
-}
-.filters button{
-    width: 39.5%;
-    height: 40px;
-    border-radius: 8px;
-    border:none;
-    background-color: #3069BD;
-    color: white;
-    margin-top: 30px;
-    margin-left: 35%;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 40px;
-}
-.filters button:hover{
-    background-color: #003077;
-}
-.classesList{
+/* tutors list */
+.tutorList{
     background-color: rgb(243, 243, 243);
     height: auto;
     box-sizing: border-box;
-    padding-top: 30px;
+    padding-top: 60px;
     min-height: 500px;
-    
+    padding-bottom: 30px;
 }
 
-.classesList>h2{
+
+.tutorList>h2{
     margin-left: 20%;
 }
+.tutorList>p{
+    margin-left: 20%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
 
-.classDetails{
-    width: 60%;
-    height: 50px;
+.tutorDetails{
+    width: 70%;
+    height: 120px;
     background-color: white;
     margin-top: 30px;
     margin-left: 20%;
@@ -108,35 +61,44 @@
     border-radius: 5px;
     box-shadow: 1px 1px 10px gray;
 }
-.classDetails:hover{
+.tutorDetails:hover{
     box-shadow: 1px 1px 20px gray;
 }
-.classDetails>div{
+.tutorDetails>div{
     width: 20%;
 }
-.classDetails>div:nth-child(1){
-    margin-left: 5%;
+.tutorDetails>div>img{
+    height: 110px;
 }
-.classDetails p{
+.tutorDetails>div:nth-child(1){
+    margin-left: 1%;
+}
+.tutorDetails p{
     color: #838383;
     margin: 0px;
     
 }
-.classDetails h4{
+.tutorDetails h4{
     margin: 0px;
 }
-.classDetails button{
+.tutorDetails>div:nth-child(6){
+    margin-left: 10px;
     width: 100px;
-    height: 40px;
+    /* background-color: #838383; */
+}
+.tutorDetails button{
+    width: 80px;
+    height: 30px;
     border-radius: 5px;
     border:none;
     background-color: #3069BD;
     color: white;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-    margin-top: 6px;
+    margin-top: 20px;
+    margin-left: 10px;
 }
-.classDetails button:hover{
+.tutorDetails button:hover{
     background-color: #002a68;
 }
 /* footer */
@@ -146,7 +108,6 @@
     background-color: #1362A4;
     padding-top: 30px;
     padding-bottom: 30px;
-   
 }
 .footer>div{
     margin: auto;

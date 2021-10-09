@@ -6,7 +6,7 @@ import { useHistory } from "react-router";
 import { Api } from "../../context/ContextApi";
 import BasicModal from "../NotificationModel/BasicModal";
 
-const TutorNav = () => {
+const StudentNav = () => {
   const { setAuth, setUser } = useContext(Api);
   const history = useHistory();
   const handleLogOut = () => {
@@ -27,11 +27,11 @@ const TutorNav = () => {
         </div>
 
         <div className={styles.links}>
-          <Link to="/tutordashboard/livesession">Live Sessions</Link>
-          <Link to="/tutordashboard/createsession">Create Session</Link>
+          <Link to="/studentdashboard/liveclasses">Live Classes</Link>
+          <Link to="/studentdashboard/tutorslist">Tutors List</Link>
           <a ><BasicModal/> </a>
-          <Link to="/tutordashboard/contactus">Contact Us</Link>
-          <Link to="/tutordashboard/contactus">Profile</Link>
+          <Link to="/studentdashboard/contactus">Contact Us</Link>
+          <Link to="/studentdashboard/profile">Profile</Link>
           
             <Button
               variant="outlined"
@@ -47,4 +47,4 @@ const TutorNav = () => {
   );
 };
 
-export default TutorNav;
+export default StudentNav;

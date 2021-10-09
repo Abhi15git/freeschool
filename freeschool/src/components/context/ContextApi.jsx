@@ -16,7 +16,15 @@ const ContextApi = ({ children }) => {
 
   return (
     <Api.Provider
-      value={{ auth, setAuth, setUser, handleTutorRegister, handleTutorLogin ,handleStudentRegister,handleStudentLogin}}
+      value={{
+        auth,
+        setAuth,
+        setUser,
+        handleTutorRegister,
+        handleTutorLogin,
+        handleStudentRegister,
+        handleStudentLogin,
+      }}
     >
       {children}
     </Api.Provider>
@@ -29,7 +37,7 @@ export default ContextApi;
 
 const handleTutorRegister = (payload, history, setAuth, setUser) => {
   axios
-    .post(`${process.env.REACT_APP_API_KEY}teacher/register`, payload)
+    .post(`${process.env.REACT_APP_API_KEY}register`, payload)
     .then((res) => {
       let user = {
         auth: "tutor",
@@ -46,7 +54,7 @@ const handleTutorRegister = (payload, history, setAuth, setUser) => {
 //tutor login
 const handleTutorLogin = (payload, history, setAuth, setUser) => {
   axios
-    .post(`${process.env.REACT_APP_API_KEY}teacher/login`, payload)
+    .post(`${process.env.REACT_APP_API_KEY}login`, payload)
     .then((res) => {
       let user = {
         auth: "tutor",
@@ -60,39 +68,37 @@ const handleTutorLogin = (payload, history, setAuth, setUser) => {
     .catch((err) => console.log(err));
 };
 
-
 //student register
 
 const handleStudentRegister = (payload, history, setAuth, setUser) => {
-    axios
-      .post(`${process.env.REACT_APP_API_KEY}student/register`, payload)
-      .then((res) => {
-        let user = {
-          auth: "student",
-          user: res.data.teacher,
-        };
-        localStorage.setItem("sessionData", JSON.stringify(user));
-        setAuth("student");
-        setUser(res.data.student);
-        history.replace("/");
-      })
-      .catch((err) => console.log(err));
-  };
-  
-  //student login
-  const handleStudentLogin = (payload, history, setAuth, setUser) => {
-    axios
-      .post(`${process.env.REACT_APP_API_KEY}teacher/login`, payload)
-      .then((res) => {
-        let user = {
-          auth: "student",
-          user: res.data.teacher,
-        };
-        localStorage.setItem("sessionData", JSON.stringify(user));
-        setAuth("student");
-        setUser(res.data.teacher);
-        history.replace("/");
-      })
-      .catch((err) => console.log(err));
-  };
-  
+  axios
+    .post(`${process.env.REACT_APP_API_KEY}register`, payload)
+    .then((res) => {
+      let user = {
+        auth: "student",
+        user: res.data.teacher,
+      };
+      localStorage.setItem("sessionData", JSON.stringify(user));
+      setAuth("student");
+      setUser(res.data.student);
+      history.replace("/");
+    })
+    .catch((err) => console.log(err));
+};
+
+//student login
+const handleStudentLogin = (payload, history, setAuth, setUser) => {
+  axios
+    .post(`${process.env.REACT_APP_API_KEY}login`, payload)
+    .then((res) => {
+      let user = {
+        auth: "student",
+        user: res.data.teacher,
+      };
+      localStorage.setItem("sessionData", JSON.stringify(user));
+      setAuth("student");
+      setUser(res.data.teacher);
+      history.replace("/");
+    })
+    .catch((err) => console.log(err));
+};
