@@ -1,16 +1,25 @@
-
 .wrapper{
+    text-align: center;
+    display: flex;
+    margin: auto;
+    width: fit-content;
+    justify-content: flex-start;
+    align-items: center;
     padding: 10px 20px 20px;
 }
 .wrapper>div{
     text-transform: uppercase;
+    margin: 0 90px;
+    height: fit-content;
 
 }
 
-.wrapper>h3{
+.paymentDetails{
     margin-top: 0;
     margin-bottom: 13px;
     color: #555555;
+    width: 90%;
+    margin: auto;
     font-weight: 400;
     font-size: 25px;
     border-bottom: dotted 1px #777777;
@@ -28,13 +37,16 @@ margin: auto;
 padding: 1.5px;
 }
 .confirm:hover{
-    border: solid #FF7D00 2px;
+opacity: .9;
 }
 .confirm>button{
     color: #FFF;
     width: fit-content;
-    background-color: #541202;
+    background-color: #336699;
     outline: none;
+    font-size: 20px;
+    letter-spacing: 1px;
     border: none;
-    padding: 6px 60px;
+    border-radius: 4px;
+    padding: 10px 80px;
 }

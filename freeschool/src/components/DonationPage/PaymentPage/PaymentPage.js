@@ -2,6 +2,7 @@ import axios from "axios";
 import styled from "styled-components"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
+import { PaymentDetails } from "./PaymentDetails";
 function PaymentPage() {
     const { id } = useParams();
     const [child, setChild] = useState({})
@@ -17,22 +18,22 @@ function PaymentPage() {
     }, [])
     return (
         <Wrapper>
-                <h1>{child.details}</h1>
+            <h1>{child.details}</h1>
             <Container>
                 <Left>
                     <img src={child.image} alt="" />
                 </Left>
                 <Right>
-
                 </Right>
             </Container>
+            <PaymentDetails />
         </Wrapper>
     )
 }
 
 export default PaymentPage
 const Wrapper = styled.div`
-
+margin:80px 0;
 &>h1{
     color: #444444;
     text-align: center;
@@ -45,11 +46,11 @@ margin: 50px auto;
 display: flex;
 max-width: 1250px;
 min-width: 600px;
-border: solid;
+/* border: solid; */
 `;
 const Left = styled.div`
 flex: 0.5;
-border: solid red;
+/* border: solid red; */
 padding: 20px;
 &>img{
     width: 100%;
@@ -57,6 +58,6 @@ padding: 20px;
 `;
 const Right = styled.div`
 flex: 0.5;
-border: solid blue;
+border: solid 1px #ccc;
 `;
 
