@@ -32,7 +32,6 @@ function PaymentPage() {
       .patch(`https://schoolfree.herokuapp.com/children/${id}/add/${form.amount}`)
       .then((res) => {
         getChild();
-
       })
       .catch((e) => {
         console.log(e, "error");
@@ -99,7 +98,9 @@ function PaymentPage() {
         alert("network error");
         return;
       }
-      const { data } = await axios.post(`http://localhost:3001/payment/order/${form.amount}`);
+      const { data } = await axios.post(
+        `https://schoolfree.herokuapp.com/payment/order/${form.amount}`
+      );
       console.log("data:", data);
       if (!data) {
         alert("network error");
@@ -124,7 +125,7 @@ function PaymentPage() {
             currency,
           };
           handelSubmit();
-          const result = await axios.post("http://localhost:3001/payment/success", data);
+          const result = await axios.post("https://schoolfree.herokuapp.com/payment/success", data);
           console.log(result.data);
         },
         prefill: {
