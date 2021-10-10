@@ -1,17 +1,20 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import { io } from "socket.io-client";
+import { useContext, useState, useRef, useEffect } from "react";
+import { Api } from "../../context/ContextApi";
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
+  bgcolor: "background.paper",
+  border: "2px solid #000",
   boxShadow: 24,
   p: 4,
 };
@@ -21,9 +24,28 @@ export default function BasicModal() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const [notify, setNotify] = useState();
+  const { user } = useContext(Api);
+  const socket = useRef();
+  useEffect(() => {
+    socket.current = io("http://localhost:3001");
+    socket.current.on("welcome", (data) => {
+      //console.log(data);
+    });
+    socket.current.emit("addedUser", user._id);
+
+    socket.current.on("notifyClass", (data) => {
+      console.log(data, "notify");
+      setNotify(data);
+    });
+  }, [user]);
+
   return (
     <div>
-      <span onClick={handleOpen}>Notification</span>
+      <span style={{ color: notify ? "red" : "white" }} onClick={handleOpen}>
+        Notification
+      </span>
+
       <Modal
         open={open}
         onClose={handleClose}
@@ -32,11 +54,21 @@ export default function BasicModal() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+            {notify ? "Class is scheduled" : "You have 0 notification"}
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          {notify && (
+            <>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                Topic - {notify?.lectureDetail?.title}
+              </Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                Class - {notify?.lectureDetail?.class}
+              </Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                Time - {notify?.lectureDetail?.time}
+              </Typography>
+            </>
+          )}
         </Box>
       </Modal>
     </div>
