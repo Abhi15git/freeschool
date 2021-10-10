@@ -145,7 +145,7 @@ function PaymentPage() {
             <div>
               <TextField
                 onChange={handelChange}
-                value={form.name}
+                defaultValue={form.name}
                 id="standard-basic"
                 label="Name"
               />
@@ -153,7 +153,7 @@ function PaymentPage() {
             <div>
               <TextField
                 onChange={handelChange}
-                value={form.email}
+                defaultValue={form.email}
                 id="standard-basic"
                 label="Email"
               />
@@ -161,17 +161,17 @@ function PaymentPage() {
             <div>
               <TextField
                 onChange={handelChange}
-                value={form.phone}
+                defaultValue={form.phone}
                 id="standard-basic"
                 label="Phone"
               />
             </div>
           </div>
-        </Right>
-      </Container>
       <Button onClick={handelSubmit} variant="contained" color="primary">
         Donate
       </Button>
+        </Right>
+      </Container>
     </Wrapper>
   );
 }
