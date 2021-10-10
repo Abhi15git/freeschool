@@ -21,10 +21,13 @@ const style = {
 
 export default function BasicModal() {
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
   const [notify, setNotify] = useState();
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+    setNotify("");
+  };
+
   const { user } = useContext(Api);
   const socket = useRef();
   useEffect(() => {
@@ -36,7 +39,9 @@ export default function BasicModal() {
 
     socket.current.on("notifyClass", (data) => {
       console.log(data, "notify");
-      setNotify(data);
+      if (notify?.senderId !== user._id) {
+        setNotify(data);
+      }
     });
   }, [user]);
 

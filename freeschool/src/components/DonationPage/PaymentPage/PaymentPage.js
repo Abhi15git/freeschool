@@ -11,9 +11,9 @@ function PaymentPage() {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    amount: 1,
+    amount: 500,
     phone: "",
-    children: { id },
+    children: id,
   });
 
   const [color, setColor] = useState(1);
@@ -24,16 +24,20 @@ function PaymentPage() {
   };
 
   const donor = async () => {
-    let donator = await axios.post(`https://schoolfree.herokuapp.com/donator`);
+    let donator = await axios.post(`https://schoolfree.herokuapp.com/donator`, form);
   };
 
   const amountUpdate = async () => {
-    let update = await axios.patch(
-      `https://schoolfree.herokuapp.com/children/${id}/add/${form.amount}`
-    );
+    let update = await axios
+      .patch(`https://schoolfree.herokuapp.com/children/${id}/add/${form.amount}`)
+      .then((res) => {})
+      .catch((e) => {
+        console.log(e, "error");
+      });
   };
 
   const handelSubmit = () => {
+    console.log(form);
     if (form.amount < 10) {
       alert("Please increase the amount");
       return;
@@ -72,7 +76,7 @@ function PaymentPage() {
   `;
 
   const loadScript = (src) => {
-    return new Promise(res => {
+    return new Promise((res) => {
       const script = document.createElement("script");
       script.src = src;
       script.onload = () => {
@@ -80,10 +84,10 @@ function PaymentPage() {
       };
       script.onerror = () => {
         res(false);
-      }
+      };
       document.body.appendChild(script);
-    })
-  }
+    });
+  };
 
   const displayRazorpay = async () => {
     try {
@@ -92,8 +96,8 @@ function PaymentPage() {
         alert("network error");
         return;
       }
-      const {data} = await axios.post(`http://localhost:3001/payment/order/${form.amount}`);
-      console.log('data:', data)
+      const { data } = await axios.post(`http://localhost:3001/payment/order/${form.amount}`);
+      console.log("data:", data);
       if (!data) {
         alert("network error");
         return;
@@ -114,25 +118,24 @@ function PaymentPage() {
             razorpayOrderId: response.razorpay_order_id,
             razorpaySignature: response.razorpay_singnature,
             amount: amount.toString(),
-            currency
-          }
+            currency,
+          };
           const result = await axios.post("http://localhost:3001/payment/success", data);
           console.log(result.data);
         },
         prefill: {
           name: "You name",
           email: "123@gmail.com",
-          contact:"12121212122"
-        }
-      }
+          contact: "12121212122",
+        },
+      };
       const paymentObject = new window.Razorpay(options);
       paymentObject.open();
+    } catch (error) {
+      console.log(error.message);
     }
-    catch (error) {
-      console.log(error.message)
-    }
-  }
-  
+  };
+
   return (
     <Wrapper>
       <h1>{child.details}</h1>
@@ -196,12 +199,13 @@ function PaymentPage() {
               id="standard-basic"
               type="number"
               label="Amount"
+              name="amount"
               value={form.amount}
               onChange={handelChange}
             />
           </div>
           <p className="saveChild">
-            Your donation will support <span>{Math.ceil(form.amount / 500)} Child</span>
+            Your donation will support <span>{Math.floor(form.amount / 500)} Child</span>
           </p>
           <div className="form">
             <div>
@@ -210,6 +214,7 @@ function PaymentPage() {
                 defaultValue={form.name}
                 id="standard-basic"
                 label="Name"
+                name="name"
               />
             </div>
             <div>
@@ -218,6 +223,7 @@ function PaymentPage() {
                 defaultValue={form.email}
                 id="standard-basic"
                 label="Email"
+                name="email"
               />
             </div>
             <div>
@@ -226,6 +232,7 @@ function PaymentPage() {
                 defaultValue={form.phone}
                 id="standard-basic"
                 label="Phone"
+                name="phone"
               />
             </div>
           </div>
