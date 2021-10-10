@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Button from "@material-ui/core/Button";
-import { PaymentDetails } from "./PaymentDetails";
 function PaymentPage() {
   const { id } = useParams();
   const [child, setChild] = useState({});
@@ -170,7 +169,6 @@ function PaymentPage() {
           </div>
         </Right>
       </Container>
-      <PaymentDetails />
       <Button onClick={handelSubmit} variant="contained" color="primary">
         Donate
       </Button>
