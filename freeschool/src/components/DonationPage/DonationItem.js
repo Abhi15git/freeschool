@@ -12,7 +12,7 @@ function DonationItem({ data }) {
                     <h3>{details}</h3>
 
                 </div>
-                <button onClick={()=>{history.push(`/donation/${_id}`)}}>Gift to Child</button>
+                <button onClick={()=>{history.push(`/donation/${_id}`)}}>Help Children</button>
             </ContentBox>
         </Wrapper>
     )

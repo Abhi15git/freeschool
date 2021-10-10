@@ -1,6 +1,8 @@
 import styles from "./homeInfo.module.css";
+import { useHistory } from "react-router-dom";
 
 const HomeInfo = () => {
+  const history = useHistory();
   return (
     <>
       <div className={styles.homeInfo}>
@@ -11,7 +13,7 @@ const HomeInfo = () => {
         <div>
           <div>
             <p>Let's make it possible<br/> with everyone's contribution..</p>
-          <button>Donate Now</button>
+          <button  onClick={()=>history.push("/donation")}>Donate Now</button>
           </div>
         </div>
         <div className={styles.aboutDiv1}>
