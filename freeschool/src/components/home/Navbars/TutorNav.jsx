@@ -19,28 +19,25 @@ const TutorNav = () => {
     <div className={styles.tutorNavContainer}>
       <div className={styles.nav}>
         <div className={styles.logo}>
-          <Link to="/"><div className={styles.logo}>
+          <Link to="/">
+            <div className={styles.logo}>
               <span>free</span>
               <span>S</span>
               <span>chool</span>
-            </div></Link>
+            </div>
+          </Link>
         </div>
 
         <div className={styles.links}>
           <Link to="/tutordashboard/livesession">Live Sessions</Link>
           <Link to="/tutordashboard/createsession">Create Session</Link>
-          <a ><BasicModal/> </a>
+          <Link to="/chatroom">Queries</Link>
           <Link to="/tutordashboard/contactus">Contact Us</Link>
           <Link to="/tutordashboard/contactus">Profile</Link>
-          
-            <Button
-              variant="outlined"
-              size="small"
-              color="inherit"
-              onClick={() => handleLogOut()}
-            >
-              Log out
-            </Button>
+
+          <Button variant="outlined" size="small" color="inherit" onClick={() => handleLogOut()}>
+            Log out
+          </Button>
         </div>
       </div>
     </div>

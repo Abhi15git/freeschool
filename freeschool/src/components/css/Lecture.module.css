@@ -1,6 +1,10 @@
 .classContainer{
-    padding: 60px 0px;
+    padding: 60px 0px 0px 0px;
     text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .classDetails{
@@ -43,13 +47,17 @@
     font-weight: 600;
     margin-top: 6px;
 }
+.classDetails button a{
+    color: white;
+    text-decoration: none;
+}
 .classDetails button:hover{
     background-color: #002a68;
 }
 
 
 .createClassContainer{
-    padding: 60px 0px;
+    padding: 60px 0px 0px 0px;
     text-align: center;
 }
 .createClass{

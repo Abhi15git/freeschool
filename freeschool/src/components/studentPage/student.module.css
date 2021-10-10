@@ -136,6 +136,10 @@
     font-weight: 600;
     margin-top: 6px;
 }
+.classDetails button a{
+    color:white;
+    text-decoration: none;
+}
 .classDetails button:hover{
     background-color: #002a68;
 }
