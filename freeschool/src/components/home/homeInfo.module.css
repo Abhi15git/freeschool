@@ -6,7 +6,8 @@
 .homeInfo>div:nth-child(1)>h1,.homeInfo>div:nth-child(6)>h1{
   margin-left: 23%;
   font-size: 3rem;
-  text-shadow: 10px 10px 8px gray;
+  color: #1362a4;
+  text-shadow: 5px 5px 8px rgb(172, 172, 172);
 }
 .homeInfo>div:nth-child(6)>h1{
   text-shadow: none;
@@ -28,10 +29,9 @@
   background-image: url('https://confusedparent.in/wp-content/uploads/2017/10/The-Education-Landscape-in-India-%E2%80%93-What-Works-for-Your-Child-Best1.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
-  /* opacity: 0.7; */
-  background-color: black;
-  background-position-y: -90px;
+  /* background-size: cover; */
   position: relative;
+  /* background-color: rgb(48, 0, 0); */
 }
 
 .homeInfo>div:nth-child(7){
@@ -60,11 +60,12 @@ width: 50%;
   margin-left: 40px;
   width: 200px;
   height: 50px;
-  background-color: rgb(255, 255, 255);
+  background-color: #ffffff;
   color: rgb(0, 0, 0);
   font-weight: 800;
   font-size: 16px;
   box-shadow: 3px 3px 20px gray;
+  position: absolute;
 }
 .homeInfo>div>div>button:hover{
   box-shadow: 5px 5px 30px gray;
@@ -93,7 +94,7 @@ width: 50%;
 .aboutDiv1 > div:nth-child(2),
 .aboutDiv2 > div:nth-child(1) {
   width: 40%;
-  background-color: black;
+  /* background-color: black; */
   height: 200px;
   margin-left: 110px;
   margin-top: 40px;
