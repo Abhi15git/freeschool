@@ -86,6 +86,7 @@ export default function TutorSignup() {
         <TextField
           id="outlined-basic"
           label="Password"
+          type="password"
           variant="outlined"
           onKeyUp={onEnter}
           name="password"

@@ -67,6 +67,7 @@ export default function Login() {
       <div>
         <TextField
           id="outlined-basic"
+          type="password"
           label="Password"
           variant="outlined"
           onChange={onEnter}
