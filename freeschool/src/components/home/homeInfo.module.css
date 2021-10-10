@@ -1,86 +1,73 @@
-.homeInfo > div:nth-child(1),
-.homeInfo > div:nth-child(6) {
+.donateText,.teach{
   margin: 60px auto;
   width: 80%;
   /* background-color: blue; */
 }
-.homeInfo > div:nth-child(1) > h1,
-.homeInfo > div:nth-child(6) > h1 {
+.donateText>h1,.teach>h1{
   margin-left: 23%;
   font-size: 3rem;
+  /* text-shadow: 10px 10px 8px gray; */
   color: #1362a4;
-  text-shadow: 5px 5px 8px rgb(172, 172, 172);
 }
-.homeInfo > div:nth-child(6) > h1 {
+.teach>h1{
   text-shadow: none;
   font-size: 2.3rem;
 }
-.homeInfo > div:nth-child(1) > p,
-.homeInfo > div:nth-child(6) > p {
+.donateText>p,.teach>p{
   margin-left: 30%;
   font-size: 1.2rem;
   font-weight: 500;
   color: rgb(100, 100, 100);
 }
-.homeInfo > div:nth-child(6) > p {
+.teach>p{
   margin-left: 20%;
 }
-.homeInfo > div:nth-child(2),
-.homeInfo > div:nth-child(7) {
+.donateText+div,.teach+div{
   margin: 60px auto;
   width: 80%;
   height: 400px;
-  background-image: url("https://confusedparent.in/wp-content/uploads/2017/10/The-Education-Landscape-in-India-%E2%80%93-What-Works-for-Your-Child-Best1.jpg");
+  background-image: url('https://confusedparent.in/wp-content/uploads/2017/10/The-Education-Landscape-in-India-%E2%80%93-What-Works-for-Your-Child-Best1.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
-  /* background-size: cover; */
-  position: relative;
-  /* background-color: rgb(48, 0, 0); */
-}
-
-.homeInfo > div:nth-child(7) {
-  background-image: url("https://s01.sgp1.digitaloceanspaces.com/large/814907-article-eitxocsxxw-1460737394.jpeg");
-}
-
-.homeInfo > div:nth-child(2) {
-  position: relative;
-}
-.homeInfo > div:nth-child(2) > div,
-.homeInfo > div:nth-child(7) > div {
-  position: absolute;
-
-  right: 0;
-  top: 0;
-
-  bottom: 0;
+  /* opacity: 0.7; */
   background-color: black;
-  height: 100%;
-  opacity: 0.7;
-  width: 50%;
+  background-position-y: -90px;
+  position: relative;
 }
-.homeInfo > div:nth-child(7) > div {
+
+.teach+div{
+  background-image: url('https://s01.sgp1.digitaloceanspaces.com/large/814907-article-eitxocsxxw-1460737394.jpeg');
+}
+
+.donateText+div>div,.teach+div>div{
+position: absolute;
+right: 0;
+background-color: black;
+height: 100%;
+opacity: 0.7;
+width: 50%;
+}
+.teach+div>div{
   left: 0;
   width: 40%;
 }
-.homeInfo > div:nth-child(2) > div > p,
-.homeInfo > div:nth-child(7) > div > p {
+.donateText+div>div>p,.teach+div>div>p{
   color: #ffffff;
   font-size: 30px;
   margin-left: 40px;
   margin-top: 50px;
 }
-.homeInfo > div > div > button {
+.homeInfo>div>div>button{
   margin-left: 40px;
   width: 200px;
   height: 50px;
-  background-color: #ffffff;
+  background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   font-weight: 800;
   font-size: 16px;
   box-shadow: 3px 3px 20px gray;
-  position: absolute;
 }
-.homeInfo > div > div > button:hover {
+.homeInfo>div>div>button:hover{
   box-shadow: 5px 5px 30px gray;
 }
 .aboutDiv1,
@@ -107,7 +94,7 @@
 .aboutDiv1 > div:nth-child(2),
 .aboutDiv2 > div:nth-child(1) {
   width: 40%;
-  /* background-color: black; */
+  background-color: black;
   height: 200px;
   margin-left: 110px;
   margin-top: 40px;

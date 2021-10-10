@@ -1,19 +1,27 @@
 import styles from "./homeInfo.module.css";
-import { useHistory } from "react-router-dom";
 
 const HomeInfo = () => {
-  const history = useHistory();
   return (
     <>
       <div className={styles.homeInfo}>
-        <div>
-          <h1>Want to join our helping hands ?</h1>
-          <p>Here is what you can do and can beacome a part to educate India...</p>
+        <div className={styles.teach}>
+          <h1>Share your knowledge with us</h1>
+          <p>Age or status doesn't matter, all you need is knowledge that can help many... </p>
         </div>
         <div>
           <div>
+            <p>we are here<br/>looking for you..<br/>to welcome a change together</p>
+          <button>Join us to teach</button>
+          </div>
+        </div>
+        <div className={styles.donateText}>
+          <h1>Want to join our helping hands ?</h1>
+          <p>Here is what you can do and can beacome a part to educate India...</p>
+        </div>
+        <div className={styles.donate}>
+          <div>
             <p>Let's make it possible<br/> with everyone's contribution..</p>
-          <button  onClick={()=>history.push("/donation")}>Donate Now</button>
+          <button style={{opacity:"1"}}>Donate Now</button>
           </div>
         </div>
         <div className={styles.aboutDiv1}>
@@ -82,7 +90,7 @@ const HomeInfo = () => {
             />
           </div>
         </div>
-        <div>
+        {/* <div className={styles.teach}>
           <h1>...Share your knowledge with us...</h1>
           <p>Age or status doesn't matter, all you need is knowledge that can help many... </p>
         </div>
@@ -91,7 +99,7 @@ const HomeInfo = () => {
             <p>we are here<br/>looking for you..<br/>to welcome a change together</p>
           <button>Join us to teach</button>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className={styles.footer}>
         <div>
