@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Avatar from "@material-ui/core/Avatar";
 
 export default function AllChatMember({ data, currentUser }) {
+  
   const [user, setUser] = useState(null);
 
   useEffect(() => {

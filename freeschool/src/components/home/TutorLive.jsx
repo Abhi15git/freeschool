@@ -4,8 +4,11 @@ import styles from "../css/Lecture.module.css";
 import Footer from "./Footer";
 
 const TutorLive = () => {
+
   const { user, handleMySession } = useContext(Api);
   const [sessions, setSessions] = useState([]);
+  
+  
 
 //   const handleLiveSession = (link) => {
 //     window.location.assign(link);

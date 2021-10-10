@@ -10,7 +10,7 @@ import { useHistory } from "react-router";
 export default function Login() {
   const { handleTutorLogin, handleStudentLogin, setAuth, setUser } = useContext(Api);
   const history = useHistory();
-
+  
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -32,18 +32,19 @@ export default function Login() {
 
     setForm({ ...form, [name]: value });
   };
-
+  
   const validateForm = () => {
     if (form?.email === "" && form?.password === "")
       setError({ email: "Email is required", password: "Password is required" });
     else if (form?.email === "") setError({ error, email: "Email is required" });
     else if (form?.password === "") setError({ error, password: "Password is required" });
   };
-
+  
   const handelSubmit = (e) => {
     validateForm();
-    console.log(form);
+    
     if (error.email === false && error.password === false) {
+
       handleTutorLogin(form, history, setAuth, setUser);
     }
   };

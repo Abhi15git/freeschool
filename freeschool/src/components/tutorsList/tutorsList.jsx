@@ -35,8 +35,6 @@ const generator = new AvatarGenerator();
 
 export const TutorsList = () => {
   const { handleGetTeachers, setTeachers, teachers, user } = useContext(Api);
-
-  console.log(user, "user");
   useEffect(() => {
     if (!teachers.length) handleGetTeachers(setTeachers);
   }, []);

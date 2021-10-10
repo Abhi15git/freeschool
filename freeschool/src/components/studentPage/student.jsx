@@ -24,10 +24,11 @@ const student = [
 
 export const Student = () => {
     const {handleGetClasses,classes,setClasses} = useContext(Api);
-
     useEffect(()=>{
-        if(!classes.length)
-        handleGetClasses(setClasses)
+        if(!classes.length){
+            
+        handleGetClasses(setClasses);
+        }
       },[])
 
     return (

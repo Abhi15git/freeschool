@@ -33,6 +33,7 @@ const CreateSession = () => {
     socket.current.emit("class", { text: "class is created", senderId: user?._id, lectureDetail });
   };
   const socket = useRef();
+  
   useEffect(() => {
     socket.current = io("https://schoolfree.herokuapp.com");
     socket.current.on("welcome", (data) => {

@@ -1,6 +1,5 @@
 import React, { createContext, useState } from "react";
 import axios from "axios";
-import { stepClasses } from "@mui/material";
 
 export const Api = createContext();
 const ContextApi = ({ children }) => {
@@ -117,7 +116,7 @@ const handleStudentLogin = (payload, history, setAuth, setUser) => {
 
 //get teachers
 
-const handleGetTeachers = (setTeachers) => {
+const handleGetTeachers = (setTeachers, setLoading) => {
   axios
     .get(`${process.env.REACT_APP_API_KEY}users/teachers`)
     .then((res) => setTeachers(res.data.teachers))
