@@ -30,7 +30,10 @@ function PaymentPage() {
   const amountUpdate = async () => {
     let update = await axios
       .patch(`https://schoolfree.herokuapp.com/children/${id}/add/${form.amount}`)
-      .then((res) => {})
+      .then((res) => {
+        getChild();
+
+      })
       .catch((e) => {
         console.log(e, "error");
       });
@@ -120,13 +123,14 @@ function PaymentPage() {
             amount: amount.toString(),
             currency,
           };
+          handelSubmit();
           const result = await axios.post("http://localhost:3001/payment/success", data);
           console.log(result.data);
         },
         prefill: {
-          name: "You name",
-          email: "123@gmail.com",
-          contact: "12121212122",
+          name: form.name,
+          email: form.email,
+          contact: form.phone,
         },
       };
       const paymentObject = new window.Razorpay(options);
@@ -236,7 +240,7 @@ function PaymentPage() {
               />
             </div>
           </div>
-          <Button onClick={handelSubmit} variant="contained" color="primary">
+          <Button onClick={displayRazorpay} variant="contained" color="primary">
             Donate
           </Button>
         </Right>

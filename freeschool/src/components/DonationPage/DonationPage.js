@@ -32,5 +32,5 @@ justify-content: space-evenly;
 grid-gap: 20px;
 max-width: 1200px;
 width: 90%;
-margin: 30px auto;
+margin: 60px auto;
 `
