@@ -14,6 +14,7 @@
     "@zoomus/websdk": "^1.9.9",
     "axios": "^0.22.0",
     "crypto": "^1.0.1",
+    "random-avatar-generator": "^2.0.0",
     "react": "^17.0.2",
     "react-breadcrumbs-dynamic": "^1.2.1",
     "react-credit-cards": "^0.8.3",

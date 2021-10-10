@@ -126,7 +126,7 @@ const ClassDetails = ({ele}) => {
             </div>
             <div>
                 <p>Class</p>
-                <h4>{ele.class}</h4>
+                <h4>{ele.class}th</h4>
             </div>
             <div>
                 <p>Subject</p>
@@ -136,7 +136,7 @@ const ClassDetails = ({ele}) => {
                 <p>Time</p>
                 <h4>{ele.time}</h4>
             </div>
-            <button>Attend live</button>
+            <button><a href={ele.meetLink} target="_blank" rel="noreferrer noopener">Attend live</a></button>
         </div>
     )
 }

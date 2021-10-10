@@ -6,13 +6,22 @@ import { Api } from '../context/ContextApi'
 import styles from '../css/Lecture.module.css'
 
 const CreateSession = () => {
-    const {auth} = useContext(Api);
+    const {auth,user,handleCreateClass} = useContext(Api);
     const history = useHistory();
-    const [lectureDetail,setLectureDetail] = useState({title:'',class:'',teacher:'',subject:'',time:''})
+    const [lectureDetail,setLectureDetail] = useState({title:'',class:'',user:'',subject:'',time:'',meetLink:''})
 
     const handleLectureDetail = (e)=>{
         const {name,value} = e.target;
         setLectureDetail({...lectureDetail,[name]:value})
+    }
+
+    const handleCreate = ()=>{
+        let payload = {
+            ...lectureDetail,
+            user:user._id
+        }
+console.log(payload)
+        handleCreateClass(payload);
     }
 
     if(!auth)
@@ -72,9 +81,24 @@ const CreateSession = () => {
                     </select>
                     </td>
                 </tr>
+
+                <tr>
+                    <th><h3>Link</h3></th>
+                    <td>
+                    <TextField
+                   size="small"
+                    id="outlined-basic"
+                    label="Link"
+                    variant="outlined"
+                    onKeyUp={handleLectureDetail}
+                    name="meetLink"
+                    required
+                    />
+                    </td>
+                </tr>
                 <tr>
                     <td></td>
-                    <td><Button variant="contained" color="primary">Create</Button></td>
+                    <td><Button variant="contained" color="primary" onClick={handleCreate}>Create</Button></td>
                 </tr>
                 </tbody>
             </table>
