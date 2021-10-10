@@ -34,6 +34,8 @@ const ContextApi = ({ children }) => {
         handleStudentLogin,
         handleGetTeachers,
         handleGetClasses,
+        handleCreateClass,
+        handleMySession,
       }}
     >
       {children}
@@ -50,11 +52,11 @@ const handleTutorRegister = (payload, history, setAuth, setUser) => {
     .post(`${process.env.REACT_APP_API_KEY}register`, payload)
     .then((res) => {
       let user = {
-        auth: "tutor",
+        auth: "teacher",
         user: res.data.user,
       };
       localStorage.setItem("sessionData", JSON.stringify(user));
-      setAuth("tutor");
+      setAuth("teacher");
       setUser(res.data.user);
       history.replace("/");
     })
@@ -128,5 +130,23 @@ const handleGetClasses = (setClasses) => {
   axios
     .get(`${process.env.REACT_APP_API_KEY}classes`)
     .then((res) => setClasses(res.data.classes))
+    .catch((err) => console.log(err));
+};
+
+//create live class
+
+const handleCreateClass = (payload) => {
+  axios
+    .post(`${process.env.REACT_APP_API_KEY}classes`, payload)
+    .then((res) => alert("Lecture created successfully"))
+    .catch((err) => console.log(err));
+};
+
+//get live session list by id
+
+const handleMySession = (id, setLectures) => {
+  axios
+    .get(`${process.env.REACT_APP_API_KEY}classes/user/${id}`)
+    .then((res) => setLectures(res.data.classes))
     .catch((err) => console.log(err));
 };
