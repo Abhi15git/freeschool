@@ -28,7 +28,7 @@ export default function BasicModal() {
   const { user } = useContext(Api);
   const socket = useRef();
   useEffect(() => {
-    socket.current = io("http://localhost:3001");
+    socket.current = io("https://schoolfree.herokuapp.com");
     socket.current.on("welcome", (data) => {
       //console.log(data);
     });
