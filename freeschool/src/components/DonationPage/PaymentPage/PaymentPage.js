@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Button from "@material-ui/core/Button";
-import { PaymentDetails } from "./PaymentDetails";
 function PaymentPage() {
   const { id } = useParams();
   const [child, setChild] = useState({});
@@ -72,6 +71,68 @@ function PaymentPage() {
     border-radius: 18px;
   `;
 
+  const loadScript = (src) => {
+    return new Promise(res => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = () => {
+        res(true);
+      };
+      script.onerror = () => {
+        res(false);
+      }
+      document.body.appendChild(script);
+    })
+  }
+
+  const displayRazorpay = async () => {
+    try {
+      const res = loadScript("https://checkout.razorpay.com/v1/checkout.js");
+      if (!res) {
+        alert("network error");
+        return;
+      }
+      const {data} = await axios.post(`http://localhost:3001/payment/order/${form.amount}`);
+      console.log('data:', data)
+      if (!data) {
+        alert("network error");
+        return;
+      }
+      const { amount, id: order_id, currency } = data;
+      const options = {
+        key: process.env.RAZORPAY_KEY,
+        amount: amount.toString(),
+        currency,
+        name: "Free School",
+        description: "help children",
+        image: "",
+        order_id,
+        handler: async function (response) {
+          const data = {
+            orderCreationId: order_id,
+            razorpayPaymentId: response.razorpay_payment_id,
+            razorpayOrderId: response.razorpay_order_id,
+            razorpaySignature: response.razorpay_singnature,
+            amount: amount.toString(),
+            currency
+          }
+          const result = await axios.post("http://localhost:3001/payment/success", data);
+          console.log(result.data);
+        },
+        prefill: {
+          name: "You name",
+          email: "123@gmail.com",
+          contact:"12121212122"
+        }
+      }
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    }
+    catch (error) {
+      console.log(error.message)
+    }
+  }
+  
   return (
     <Wrapper>
       <h1>{child.details}</h1>
@@ -146,7 +207,7 @@ function PaymentPage() {
             <div>
               <TextField
                 onChange={handelChange}
-                value={form.name}
+                defaultValue={form.name}
                 id="standard-basic"
                 label="Name"
               />
@@ -154,7 +215,7 @@ function PaymentPage() {
             <div>
               <TextField
                 onChange={handelChange}
-                value={form.email}
+                defaultValue={form.email}
                 id="standard-basic"
                 label="Email"
               />
@@ -162,18 +223,17 @@ function PaymentPage() {
             <div>
               <TextField
                 onChange={handelChange}
-                value={form.phone}
+                defaultValue={form.phone}
                 id="standard-basic"
                 label="Phone"
               />
             </div>
           </div>
+          <Button onClick={handelSubmit} variant="contained" color="primary">
+            Donate
+          </Button>
         </Right>
       </Container>
-      <PaymentDetails />
-      <Button onClick={handelSubmit} variant="contained" color="primary">
-        Donate
-      </Button>
     </Wrapper>
   );
 }
