@@ -83,8 +83,10 @@ export const Student = () => {
                         return <ClassDetails ele={ele}/>
                     })
                 }
-                
+                <br />
+            <br />
             </div>
+            
             <div className={styles.footer}>
                 <div>
                     <div>

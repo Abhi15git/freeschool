@@ -4,6 +4,7 @@ import React, { useContext, useState } from 'react'
 import { Redirect, useHistory } from 'react-router'
 import { Api } from '../context/ContextApi'
 import styles from '../css/Lecture.module.css'
+import Footer from './Footer'
 
 const CreateSession = () => {
     const {auth,user,handleCreateClass} = useContext(Api);
@@ -83,7 +84,7 @@ console.log(payload)
                 </tr>
 
                 <tr>
-                    <th><h3>Link</h3></th>
+                    <th><h3>Hosted Zoom Link</h3></th>
                     <td>
                     <TextField
                    size="small"
@@ -97,11 +98,21 @@ console.log(payload)
                     </td>
                 </tr>
                 <tr>
+                    <th></th>
+                    <td>
+                        <p style={{fontSize:'small'}}>Don't have a zoom account? <a style={{textDecoration:"none"}} href="https://zoom.us/signin" target="_blank" rel="noreferrer noopener">create one.</a></p>
+                    </td>
+                </tr>
+                <br />
+                <tr>
                     <td></td>
                     <td><Button variant="contained" color="primary" onClick={handleCreate}>Create</Button></td>
                 </tr>
                 </tbody>
             </table>
+            <br />
+            <br />
+            <Footer/>
         </div>
     )
 }

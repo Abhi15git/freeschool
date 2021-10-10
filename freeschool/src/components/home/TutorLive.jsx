@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Api } from "../context/ContextApi";
 import styles from "../css/Lecture.module.css";
+import Footer from "./Footer";
 
 const TutorLive = () => {
   const { user, handleMySession } = useContext(Api);
@@ -46,6 +47,9 @@ const TutorLive = () => {
           </div>
         );
       })}
+      <br />
+      <br />
+      <Footer/>
     </div>
   );
 };

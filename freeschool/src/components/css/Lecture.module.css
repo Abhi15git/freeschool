@@ -1,6 +1,10 @@
 .classContainer{
-    padding: 60px 0px;
+    padding: 60px 0px 0px 0px;
     text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .classDetails{
@@ -53,7 +57,7 @@
 
 
 .createClassContainer{
-    padding: 60px 0px;
+    padding: 60px 0px 0px 0px;
     text-align: center;
 }
 .createClass{
