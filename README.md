@@ -27,12 +27,12 @@ This is a short guide to our website.
 
 #### Tech library used:
 1. Material UI & material icons
-2. Redux
-3. Google OAuth2
-5. React Icons
-6. Axios
-7. react-router-dom
-8. Styled Components
+2. socket.io
+3. React Icons
+4. Axios
+5. react-router-dom
+6. Styled Components
+7. 7.Razorpay
 
 ### Install the packages
 After cloning this repository, the commands required for running this app are
