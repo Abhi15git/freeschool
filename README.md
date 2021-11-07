@@ -1,17 +1,19 @@
 # Freeschool
-#### project for Hackathon.
+#### Hackathon Project.
 
-### you can vist here : <a>https://freeschool4u.netlify.app/</a> 
+### You can vist here : <a>https://freeschool4u.netlify.app/</a> 
+
+### Visit Backend Repo - [Click Here](https://github.com/vshubhams/free-school-backend)
 
 
 #### About the project:
 Freeschool is a platform where children can get free education through tuition and our major concern is about making education possible for all. so we thought of building this freeschool as working professionals, students, or anyone who wants to share their knowledge to help or improve themselves can engage with children and make them comfortable with learning.
 ### Guide to the website
-<li>you can sign up as a tutor or as a student</li>
-<li>if you are a tutor,you can post your lecture with timings and subject name which will be notified to students</li>
-<li>if you are a student, you can see the upcoming lectures for today and can join for free</li>
+<li>You can sign up as a tutor or as a student</li>
+<li>If you are a tutor,you can post your lecture with timings and subject name which will be notified to students</li>
+<li>If you are a student, you can see the upcoming lectures for today and can join for free</li>
 <li>Tutor and student can also get in contact with in a chat for doubts</li>
-<li>students who can't efford some things which helps them to learn, for those we had a donations page where anyone can donate</li>
+<li>Students who can't efford some things which helps them to learn, for those we had a donations page where anyone can donate</li>
 
 This is a short guide to our website.
 
